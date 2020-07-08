@@ -25,7 +25,7 @@ router.get('/:fourteener', function (req, res) {
     // redirect to amazon
     switch (fourteener) {
         case 'longs-peak':
-            res.redirect('https://google.com');
+            res.redirect('https://smile.amazon.com/s?rh=n%3A7141123011%2Cp_4%3AColorado+Summit+Club');
             break;
         default:
             res.redirect('/');
