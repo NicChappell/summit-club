@@ -4,7 +4,7 @@ var express = require('express');
 // create an express app
 var app = express();
 
-// configure PORT
+// define PORT
 var PORT = process.env.PORT || 8080;
 
 // require models for syncing
@@ -14,7 +14,7 @@ var db = require('./models');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// define static directory
+// configure static directory
 app.use(express.static('public'));
 
 // import routes

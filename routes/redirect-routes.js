@@ -11,7 +11,7 @@ var router = express.Router();
 // @desc:   Redirect to corresponding 14er merch
 router.get('/:fourteener', function (req, res) {
     // destructure route params
-    var fourteener = req.params.fourteener
+    var fourteener = req.params.fourteener.toLowerCase()
 
     // add new visit to database
     db.visit.create({ route: fourteener })
