@@ -59,7 +59,9 @@ const init = () => {
 
                 const popup = `
                     <div class="popup">
-                        <img alt=${mountain_peak} class="photo" src=${photo} />
+                        <div class="photo">
+                            <img alt=${mountain_peak} src=${photo} />
+                        </div>
                         <p class="name">${mountain_peak}</p>
                         <table>
                             <tbody>
@@ -119,8 +121,7 @@ const init = () => {
                 L.marker({ lat, lng }, { icon })
                     .addTo(pinLayer)
                     .bindPopup(popup, {
-                        closeButton: false,
-                        maxWidth: 'auto'
+                        closeButton: false
                     })
             })
         })
