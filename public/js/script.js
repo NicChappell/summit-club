@@ -1,15 +1,26 @@
 // initialize the map
-const map = L.map('map').setView([39.113, -105.359], 7)
+const map = L.map('map')
+
+// colorado bounds + 0.5 degree padding
+const coloradoBounds = [
+    [(36.992426 - 0.5), (-102.041574 + 0.5)],
+    [(41.003444 + 0.5), (-109.060062 - 0.5)]
+]
+
+// set map view to given bounds
+map.fitBounds(coloradoBounds)
+// restrict map view to given bounds 
+map.setMaxBounds(coloradoBounds)
+// set the lower zoom limit
+map.setMinZoom(map.getZoom())
+// set the upper zoom limit
+map.setMaxZoom(13)
 
 // define and add tile layer to map
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     accessToken: 'pk.eyJ1IjoibmljY2hhcHBlbGwiLCJhIjoiY2tjMmdsZGcxMDA2MDJ6bDg5ZWt5cGozdiJ9.-pMdK6BaZnLaPADQDm0GbQ',
     attribution: 'Map data &copy <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    id: 'mapbox/streets-v11',
-    minZoom: 7,
-    maxZoom: 13,
-    tileSize: 512,
-    zoomOffset: -1
+    id: 'mapbox/streets-v11'
 }).addTo(map)
 
 // define and add pin layer to map
@@ -24,12 +35,6 @@ const icon = L.icon({
 })
 
 const init = () => {
-    // calculate map boundaries
-    const bounds = map.getBounds()
-
-    // set map boundaries
-    map.setMaxBounds(bounds)
-
     // fetch fourteeners
     axios.get('/api/fourteeners')
         .then(res => {

@@ -57,7 +57,7 @@ html, body, #map {
 }
 
 .popup {
-    width: 360px !important;
+    width: 360px;
 }
 
 .popup > .photo {
@@ -81,6 +81,7 @@ html, body, #map {
     width: auto;
 }
 
-.popup > table  .value {
+.popup > table .value {
+    font-weight: 400;
     width: auto;
 }
