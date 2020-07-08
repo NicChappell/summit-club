@@ -74,7 +74,7 @@ const init = () => {
                                 </tr>
                                 <tr>
                                     <td class="key">
-                                        Range:
+                                        Range
                                     </td>
                                     <td class="value">
                                         ${mountain_range}
