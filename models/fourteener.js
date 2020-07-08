@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    var Fourteener = sequelize.define("fourteener", {
+    var Fourteener = sequelize.define('fourteener', {
         mountain_peak: DataTypes.STRING,
         mountain_range: DataTypes.STRING,
         elevation_ft: DataTypes.STRING,

@@ -8,7 +8,7 @@ var app = express();
 var PORT = process.env.PORT || 8080;
 
 // require models for syncing
-var db = require("./models");
+var db = require('./models');
 
 // configure middleware
 app.use(express.urlencoded({ extended: true }));
@@ -30,6 +30,6 @@ app.use('/r', redirectRoutes);
 // connect to database and start server
 db.sequelize.sync({ force: false }).then(function () {
     app.listen(PORT, function () {
-        console.log("App listening at http://localhost:" + PORT);
+        console.log('App listening at http://localhost:' + PORT);
     });
 });

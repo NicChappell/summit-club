@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    var Visit = sequelize.define("visit", {
+    var Visit = sequelize.define('visit', {
         route: DataTypes.STRING
     });
 

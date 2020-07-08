@@ -2,7 +2,7 @@
 var express = require('express');
 
 // require models
-var db = require("../models");
+var db = require('../models');
 
 // create an express router
 var router = express.Router();
