@@ -1,0 +1,1 @@
+CREATE DATABASE summit_club;
