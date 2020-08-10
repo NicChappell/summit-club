@@ -22,8 +22,9 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     id: 'mapbox/streets-v11'
 }).addTo(map)
 
-// define and add pin layer to map
-const pinLayer = L.layerGroup().addTo(map);
+// define and add layers to map
+const markerLayer = L.layerGroup().addTo(map)
+const circleMarkerLayer = L.layerGroup().addTo(map)
 
 // define custom map icons
 const icon = L.icon({
@@ -33,7 +34,45 @@ const icon = L.icon({
     popupAnchor: [0, -24]
 })
 
+// state variables
+let button = {}
+let latlng = {}
+
+// leaflet event handlers
+const handleLocationError = (e) => alert(e.message)
+const handleLocationFound = (e) => {
+    // update state
+    button.classList.remove('hide')
+    latlng = {
+        lat: e.latlng.lat.toFixed(3),
+        lng: e.latlng.lng.toFixed(3)
+    }
+
+    // add new markers to map
+    newMarker(latlng)
+    newCircleMarker([(e.latlng.lat - 0.5), (e.latlng.lng + 0.5)])
+}
+
+// attach leaflet event handlers
+map.on('locationerror', handleLocationError)
+map.on('locationfound', handleLocationFound)
+
+// add new marker to map
+const newMarker = latlng => L.marker(latlng).addTo(markerLayer)
+
+// add new marker to map
+const newCircleMarker = latlng => L.circleMarker(latlng, '100px').addTo(circleMarkerLayer)
+
 const init = () => {
+    // select nodes and update state variables
+    button = document.querySelector('#button')
+
+    // add click event listener to button node
+    button.addEventListener('click', () => console.log(latlng))
+
+    // detect user location
+    map.locate()
+
     // fetch fourteeners
     axios.get('/api/fourteeners')
         .then(res => {
@@ -118,7 +157,7 @@ const init = () => {
                 `
 
                 L.marker({ lat, lng }, { icon })
-                    .addTo(pinLayer)
+                    .addTo(markerLayer)
                     .bindPopup(popup, {
                         closeButton: false
                     })

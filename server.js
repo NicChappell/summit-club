@@ -1,14 +1,14 @@
-// require express
+// dependencies
 var express = require('express');
 
-// create an express app
+// configure dotenv
+require('dotenv').config();
+
+// new express app
 var app = express();
 
 // define PORT
-var PORT = process.env.PORT || 8080;
-
-// require models for syncing
-var db = require('./models');
+var PORT = process.env.PORT || 5000;
 
 // configure middleware
 app.use(express.urlencoded({ extended: true }));
@@ -17,19 +17,15 @@ app.use(express.json());
 // configure static directory
 app.use(express.static('public'));
 
-// import routes
+// define routes
 var apiRoutes = require('./routes/api-routes.js');
 var htmlRoutes = require('./routes/html-routes.js');
-var redirectRoutes = require('./routes/redirect-routes.js');
 
 // configure routes
 app.use('/', htmlRoutes);
 app.use('/api', apiRoutes);
-app.use('/r', redirectRoutes);
 
-// connect to database and start server
-db.sequelize.sync({ force: false }).then(function () {
-    app.listen(PORT, function () {
-        console.log('App listening at http://localhost:' + PORT);
-    });
+// start server
+app.listen(PORT, function () {
+    console.log('App listening at http://localhost:' + PORT);
 });
