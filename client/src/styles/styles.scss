@@ -1,6 +1,6 @@
 html {
     color: rgb(0, 0, 0);
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     font-size: 16px;
     font-weight: 400;
 }
@@ -11,11 +11,14 @@ body {
 }
 
 #map {
-    height: 100vh;
-    width: 100vw;
+    height: 1000px;
+    width: 100%;
 }
 
-#button, #button:active, #button:focus, #button:hover {
+#button,
+#button:active,
+#button:focus,
+#button:hover {
     background-color: rgb(207, 216, 220);
     border: 1px solid rgba(0, 0, 0, 0.5);
     border-radius: 50%;
@@ -28,12 +31,13 @@ body {
     height: 4rem;
     line-height: 4rem;
     margin: 0;
-    opacity: 1.0;
+    opacity: 1;
     outline: 0;
     padding: 0;
     position: absolute;
     right: 4rem;
-    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.25), 1px -1px 0 rgba(0, 0, 0, 0.25), -1px 1px 0 rgba(0, 0, 0, 0.25), 1px 1px 0 rgba(0, 0, 0, 0.25);
+    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.25), 1px -1px 0 rgba(0, 0, 0, 0.25), -1px 1px 0 rgba(0, 0, 0, 0.25),
+        1px 1px 0 rgba(0, 0, 0, 0.25);
     transition: opacity 500ms linear;
     transition-delay: 3s;
     width: 4rem;
@@ -43,12 +47,13 @@ body {
 
 #button:disabled {
     color: rgba(255, 255, 255, 0.5);
-    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.125), 1px -1px 0 rgba(0, 0, 0, 0.125), -1px 1px 0 rgba(0, 0, 0, 0.125), 1px 1px 0 rgba(0, 0, 0, 0.125);
+    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.125), 1px -1px 0 rgba(0, 0, 0, 0.125), -1px 1px 0 rgba(0, 0, 0, 0.125),
+        1px 1px 0 rgba(0, 0, 0, 0.125);
     -webkit-text-stroke: 1px rgba(2, 1, 1, 0.125);
 }
 
 .fade-out {
-    opacity: 0.0 !important;
+    opacity: 0 !important;
 }
 
 .hide {

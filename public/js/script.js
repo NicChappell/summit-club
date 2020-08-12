@@ -14,7 +14,7 @@ map.setMaxBounds(coloradoBounds)
 // set the lower zoom limit
 map.setMinZoom(map.getZoom())
 // set the upper zoom limit
-map.setMaxZoom(13)
+map.setMaxZoom(18)
 
 // define and add tile layer to map
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -24,9 +24,9 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 
 // define and add layers to map
 const markerLayer = L.layerGroup().addTo(map)
-const circleMarkerLayer = L.layerGroup().addTo(map)
+const circleLayer = L.layerGroup().addTo(map)
 
-// define custom map icons
+// define custom mountain icon
 const icon = L.icon({
     iconUrl: '../img/icon.svg',
     iconSize: [36, 36],
@@ -44,13 +44,17 @@ const handleLocationFound = (e) => {
     // update state
     button.classList.remove('hide')
     latlng = {
-        lat: e.latlng.lat.toFixed(3),
-        lng: e.latlng.lng.toFixed(3)
+        lat: e.latlng.lat,
+        lng: e.latlng.lng
     }
 
-    // add new markers to map
-    newMarker(latlng)
-    newCircleMarker([(e.latlng.lat - 0.5), (e.latlng.lng + 0.5)])
+    // add new marker and circle to map
+    const marker = newMarker(latlng)
+    // const mrah = newCircle([(e.latlng.lat - 0.5), (e.latlng.lng + 0.5)])
+    const circle = newCircle(latlng)
+
+    // validate location
+    validateLocation(marker, circle)
 }
 
 // attach leaflet event handlers
@@ -60,8 +64,41 @@ map.on('locationfound', handleLocationFound)
 // add new marker to map
 const newMarker = latlng => L.marker(latlng).addTo(markerLayer)
 
-// add new marker to map
-const newCircleMarker = latlng => L.circleMarker(latlng, '100px').addTo(circleMarkerLayer)
+// add new mountain marker to map
+const newMountainMarker = latlng => L.marker(latlng, { icon }).addTo(markerLayer)
+
+// add new circle to map
+const newCircle = latlng => {
+    // instantiate new circle object
+    const circle = L.circle(latlng, {
+        color: '#ff5722',
+        fillColor: '#ff9800',
+        fillOpacity: 0.5,
+        radius: 5000
+    })
+
+    // add to circle layer
+    circle.addTo(circleLayer)
+
+    return circle
+}
+
+const validateLocation = (marker, circle) => {
+    // calculate distance between marker and circle center
+    const dist = map.distance(marker.getLatLng(), circle.getLatLng())
+
+    // determine if marker is inside circle
+    const isInside = dist < circle.getRadius()
+
+    // update state
+    console.log(isInside)
+
+    isInside
+        ? circle.setStyle({ color: '#4caf50', fillColor: '#8bc34a ' })
+        : circle.setStyle({ color: '#ff5722', fillColor: '#ff9800' })
+
+    return isInside
+}
 
 const init = () => {
     // select nodes and update state variables
@@ -156,11 +193,12 @@ const init = () => {
                     </div>
                 `
 
-                L.marker({ lat, lng }, { icon })
-                    .addTo(markerLayer)
-                    .bindPopup(popup, {
-                        closeButton: false
-                    })
+                const mountainMarker = newMountainMarker({ lat, lng })
+                mountainMarker.bindPopup(popup, {
+                    closeButton: false
+                })
+
+                const circle = newCircle({ lat, lng })
             })
         })
         .catch(err => console.log(err))
