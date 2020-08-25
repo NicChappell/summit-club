@@ -1,0 +1,39 @@
+.details {
+  background-color: #6a4025;
+  margin-top: 1.25rem;
+}
+.details:focus, .details:hover {
+  background-color: #6a4025;
+}
+
+.fullscreen-control {
+  position: absolute;
+  top: 36px;
+  left: 0;
+  padding: 10px;
+}
+
+.geolacte-control {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+}
+
+.navigation-control {
+  position: absolute;
+  top: 72px;
+  left: 0;
+  padding: 10px;
+}
+
+.popup-info img {
+  height: auto;
+  max-width: 480px;
+  width: 100%;
+}
+.popup-info table td:first-child {
+  font-weight: 700;
+}
+
+/*# sourceMappingURL=styles.css.map */

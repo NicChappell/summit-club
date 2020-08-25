@@ -27,7 +27,7 @@ const markerLayer = L.layerGroup().addTo(map)
 const circleLayer = L.layerGroup().addTo(map)
 
 // define custom mountain icon
-const icon = L.icon({
+const icon = new L.icon({
     iconUrl: '../img/icon.svg',
     iconSize: [36, 36],
     iconAnchor: [18, 18],
