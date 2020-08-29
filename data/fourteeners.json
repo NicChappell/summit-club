@@ -12,7 +12,8 @@
         "difficulty": "Hard Class 2",
         "traffic_low": 0,
         "traffic_high": 0,
-        "photo": "https://sp-images.summitpost.org/51192.JPG?auto=format&fit=max&h=800&ixlib=php-2.1.1&q=35&s=be5f5d7dac92dee95e1c30e617ca1c9c"
+        "photo": "https://sp-images.summitpost.org/51192.JPG?auto=format&fit=max&h=800&ixlib=php-2.1.1&q=35&s=be5f5d7dac92dee95e1c30e617ca1c9c",
+        "slug": "south-boulder-peak"
     },
     {
         "mountain_peak": "Mount Elbert",
@@ -27,7 +28,8 @@
         "difficulty": "Class 1",
         "traffic_low": 20000,
         "traffic_high": 25000,
-        "photo": "https://www.14ers.com/photos/mtelbert/peakphotos/large/201207_Elbert01.jpg"
+        "photo": "https://www.14ers.com/photos/mtelbert/peakphotos/large/201207_Elbert01.jpg",
+        "slug": "mount-elbert"
     },
     {
         "mountain_peak": "Mount Massive",
@@ -42,7 +44,8 @@
         "difficulty": "Class 2",
         "traffic_low": 7000,
         "traffic_high": 10000,
-        "photo": "https://www.14ers.com/photos/mtmassive/peakphotos/large/200508_Massive01.jpg"
+        "photo": "https://www.14ers.com/photos/mtmassive/peakphotos/large/200508_Massive01.jpg",
+        "slug": "mount-massive"
     },
     {
         "mountain_peak": "Mount Harvard",
@@ -57,7 +60,8 @@
         "difficulty": "Class 2",
         "traffic_low": 5000,
         "traffic_high": 7000,
-        "photo": "https://www.14ers.com/photos/harvardgroup/peakphotos/large/200706_Harv01.jpg"
+        "photo": "https://www.14ers.com/photos/harvardgroup/peakphotos/large/200706_Harv01.jpg",
+        "slug": "mount-harvard"
     },
     {
         "mountain_peak": "Blanca Peak",
@@ -72,7 +76,8 @@
         "difficulty": "Hard Class 2",
         "traffic_low": 1000,
         "traffic_high": 3000,
-        "photo": "https://www.14ers.com/photos/blancagroup/peakphotos/large/200607_Blanca01.jpg"
+        "photo": "https://www.14ers.com/photos/blancagroup/peakphotos/large/200607_Blanca01.jpg",
+        "slug": "blanca-peak"
     },
     {
         "mountain_peak": "La Plata Peak",
@@ -87,7 +92,8 @@
         "difficulty": "Class 2",
         "traffic_low": 5000,
         "traffic_high": 7000,
-        "photo": "https://www.14ers.com/photos/laplatapeak/peakphotos/large/201205_Lap01.jpg"
+        "photo": "https://www.14ers.com/photos/laplatapeak/peakphotos/large/201205_Lap01.jpg",
+        "slug": "la-plata-peak"
     },
     {
         "mountain_peak": "Uncompahgre Peak",
@@ -102,7 +108,8 @@
         "difficulty": "Class 2",
         "traffic_low": 3000,
         "traffic_high": 5000,
-        "photo": "https://www.14ers.com/photos/uncompahgrepeak/peakphotos/large/201710_Unco01.jpg"
+        "photo": "https://www.14ers.com/photos/uncompahgrepeak/peakphotos/large/201710_Unco01.jpg",
+        "slug": "uncompahgre-peak"
     },
     {
         "mountain_peak": "Crestone Peak",
@@ -117,7 +124,8 @@
         "difficulty": "Class 3",
         "traffic_low": 1000,
         "traffic_high": 3000,
-        "photo": "https://www.14ers.com/photos/crestonegroup/peakphotos/large/201607_Crestones01.jpg"
+        "photo": "https://www.14ers.com/photos/crestonegroup/peakphotos/large/201607_Crestones01.jpg",
+        "slug": "crestone-peak"
     },
     {
         "mountain_peak": "Mount Lincoln",
@@ -132,7 +140,8 @@
         "difficulty": "Class 2",
         "traffic_low": 15000,
         "traffic_high": 20000,
-        "photo": "https://www.14ers.com/photos/lincolngroup/peakphotos/large/200904_LinBro01.jpg"
+        "photo": "https://www.14ers.com/photos/lincolngroup/peakphotos/large/200904_LinBro01.jpg",
+        "slug": "mount-lincoln"
     },
     {
         "mountain_peak": "Castle Peak",
@@ -147,7 +156,8 @@
         "difficulty": "Hard Class 2",
         "traffic_low": 1000,
         "traffic_high": 3000,
-        "photo": "https://www.14ers.com/photos/castlegroup/peakphotos/large/200807_Cast04.jpg"
+        "photo": "https://www.14ers.com/photos/castlegroup/peakphotos/large/200807_Cast04.jpg",
+        "slug": "castle-peak"
     },
     {
         "mountain_peak": "Grays Peak",
@@ -162,7 +172,8 @@
         "difficulty": "Class 1",
         "traffic_low": 25000,
         "traffic_high": 30000,
-        "photo": "https://www.14ers.com/photos/graystorreys/peakphotos/large/201211_Grays01.jpg"
+        "photo": "https://www.14ers.com/photos/graystorreys/peakphotos/large/201211_Grays01.jpg",
+        "slug": "grays-peak"
     },
     {
         "mountain_peak": "Mount Antero",
@@ -177,7 +188,8 @@
         "difficulty": "Class 2",
         "traffic_low": 3000,
         "traffic_high": 5000,
-        "photo": "https://www.14ers.com/photos/mtantero/peakphotos/large/201205_Ant01.jpg"
+        "photo": "https://www.14ers.com/photos/mtantero/peakphotos/large/201205_Ant01.jpg",
+        "slug": "mount-antero"
     },
     {
         "mountain_peak": "Torreys Peak",
@@ -192,7 +204,8 @@
         "difficulty": "Class 2",
         "traffic_low": 25000,
         "traffic_high": 30000,
-        "photo": "https://www.14ers.com/photos/graystorreys/peakphotos/large/201004_Grays01.jpg"
+        "photo": "https://www.14ers.com/photos/graystorreys/peakphotos/large/201004_Grays01.jpg",
+        "slug": "torreys-peak"
     },
     {
         "mountain_peak": "Quandary Peak",
@@ -207,7 +220,8 @@
         "difficulty": "Class 1",
         "traffic_low": 20000,
         "traffic_high": 25000,
-        "photo": "https://www.14ers.com/photos/quandarypeak/peakphotos/large/200701_Quan02.jpg"
+        "photo": "https://www.14ers.com/photos/quandarypeak/peakphotos/large/200701_Quan02.jpg",
+        "slug": "quandary-peak"
     },
     {
         "mountain_peak": "Mount Evans",
@@ -222,7 +236,8 @@
         "difficulty": "Class 2",
         "traffic_low": 15000,
         "traffic_high": 20000,
-        "photo": "https://www.14ers.com/photos/evansgroup/peakphotos/large/200907_Evans01.jpg"
+        "photo": "https://www.14ers.com/photos/evansgroup/peakphotos/large/200907_Evans01.jpg",
+        "slug": "mount-evans"
     },
     {
         "mountain_peak": "Longs Peak",
@@ -237,7 +252,8 @@
         "difficulty": "Class 3",
         "traffic_low": 15000,
         "traffic_high": 20000,
-        "photo": "https://www.14ers.com/photos/longspeak/peakphotos/large/200508_Longs01.jpg"
+        "photo": "https://www.14ers.com/photos/longspeak/peakphotos/large/200508_Longs01.jpg",
+        "slug": "longs-peak"
     },
     {
         "mountain_peak": "Mount Wilson",
@@ -252,7 +268,8 @@
         "difficulty": "Class 4",
         "traffic_low": 1000,
         "traffic_high": 3000,
-        "photo": "https://www.14ers.com/photos/wilsongroup/peakphotos/large/200803_Wils01.jpg"
+        "photo": "https://www.14ers.com/photos/wilsongroup/peakphotos/large/200803_Wils01.jpg",
+        "slug": "mount-wilson"
     },
     {
         "mountain_peak": "Mount Shavano",
@@ -267,7 +284,8 @@
         "difficulty": "Class 2",
         "traffic_low": 5000,
         "traffic_high": 7000,
-        "photo": "https://www.14ers.com/photos/shavanogroup/peakphotos/large/200804_Shav01.jpg"
+        "photo": "https://www.14ers.com/photos/shavanogroup/peakphotos/large/200804_Shav01.jpg",
+        "slug": "mount-shavano"
     },
     {
         "mountain_peak": "Mount Princeton",
@@ -282,7 +300,8 @@
         "difficulty": "Class 2",
         "traffic_low": 5000,
         "traffic_high": 7000,
-        "photo": "https://www.14ers.com/photos/mtprinceton/peakphotos/large/200904_Prin01.jpg"
+        "photo": "https://www.14ers.com/photos/mtprinceton/peakphotos/large/200904_Prin01.jpg",
+        "slug": "mount-princeton"
     },
     {
         "mountain_peak": "Mount Belford",
@@ -297,7 +316,8 @@
         "difficulty": "Class 2",
         "traffic_low": 5000,
         "traffic_high": 7000,
-        "photo": "https://www.14ers.com/photos/belfordgroup/peakphotos/large/201204_Belf01.jpg"
+        "photo": "https://www.14ers.com/photos/belfordgroup/peakphotos/large/201204_Belf01.jpg",
+        "slug": "mount-belford"
     },
     {
         "mountain_peak": "Crestone Needle",
@@ -312,7 +332,8 @@
         "difficulty": "Class 3",
         "traffic_low": 1000,
         "traffic_high": 3000,
-        "photo": "https://www.14ers.com/photos/crestonegroup/peakphotos/large/201104_CNeed01.jpg"
+        "photo": "https://www.14ers.com/photos/crestonegroup/peakphotos/large/201104_CNeed01.jpg",
+        "slug": "crestone-needle"
     },
     {
         "mountain_peak": "Mount Yale",
@@ -327,7 +348,8 @@
         "difficulty": "Class 2",
         "traffic_low": 5000,
         "traffic_high": 7000,
-        "photo": "https://www.14ers.com/photos/mtyale/peakphotos/large/201004_Yale02.jpg"
+        "photo": "https://www.14ers.com/photos/mtyale/peakphotos/large/201004_Yale02.jpg",
+        "slug": "mount-yale"
     },
     {
         "mountain_peak": "Mount Bross",
@@ -342,7 +364,8 @@
         "difficulty": "Class 2",
         "traffic_low": 15000,
         "traffic_high": 20000,
-        "photo": "https://www.14ers.com/photos/lincolngroup/peakphotos/large/200505_Bross01.jpg"
+        "photo": "https://www.14ers.com/photos/lincolngroup/peakphotos/large/200505_Bross01.jpg",
+        "slug": "mount-bross"
     },
     {
         "mountain_peak": "Kit Carson Mountain",
@@ -357,7 +380,8 @@
         "difficulty": "Easy Class 3",
         "traffic_low": 1000,
         "traffic_high": 3000,
-        "photo": "https://www.14ers.com/photos/kitcarsongroup/peakphotos/large/201107_kitcar02.jpg"
+        "photo": "https://www.14ers.com/photos/kitcarsongroup/peakphotos/large/201107_kitcar02.jpg",
+        "slug": "kit-carson-mountain"
     },
     {
         "mountain_peak": "Maroon Peak",
@@ -372,7 +396,8 @@
         "difficulty": "Class 3",
         "traffic_low": 1000,
         "traffic_high": 3000,
-        "photo": "https://www.14ers.com/photos/maroongroup/peakphotos/large/201807_Maro02.jpg"
+        "photo": "https://www.14ers.com/photos/maroongroup/peakphotos/large/201807_Maro02.jpg",
+        "slug": "maroon-peak"
     },
     {
         "mountain_peak": "Tabeguache Peak",
@@ -387,10 +412,11 @@
         "difficulty": "Class 2",
         "traffic_low": 5000,
         "traffic_high": 7000,
-        "photo": "https://www.14ers.com/photos/shavanogroup/peakphotos/large/201005_Tabe01.jpg"
+        "photo": "https://www.14ers.com/photos/shavanogroup/peakphotos/large/201005_Tabe01.jpg",
+        "slug": "tabeguache-peak"
     },
     {
-        "mountain_peak": "Mount Oxford (Colorado)",
+        "mountain_peak": "Mount Oxford",
         "mountain_range": "Sawatch Range",
         "elevation_ft": 14160,
         "fourteener": "Y",
@@ -402,7 +428,8 @@
         "difficulty": "Class 2",
         "traffic_low": 5000,
         "traffic_high": 7000,
-        "photo": "https://www.14ers.com/photos/belfordgroup/peakphotos/large/200508_Oxfo01.jpg"
+        "photo": "https://www.14ers.com/photos/belfordgroup/peakphotos/large/200508_Oxfo01.jpg",
+        "slug": "mount-oxford"
     },
     {
         "mountain_peak": "Mount Sneffels",
@@ -417,7 +444,8 @@
         "difficulty": "Easy Class 3",
         "traffic_low": 3000,
         "traffic_high": 5000,
-        "photo": "https://www.14ers.com/photos/mtsneffels/peakphotos/large/200808_Snef23.jpg"
+        "photo": "https://www.14ers.com/photos/mtsneffels/peakphotos/large/200808_Snef23.jpg",
+        "slug": "mount-sneffels"
     },
     {
         "mountain_peak": "Mount Democrat",
@@ -432,7 +460,8 @@
         "difficulty": "Class 2",
         "traffic_low": 15000,
         "traffic_high": 20000,
-        "photo": "https://www.14ers.com/photos/lincolngroup/peakphotos/large/201706_Demo01.jpg"
+        "photo": "https://www.14ers.com/photos/lincolngroup/peakphotos/large/201706_Demo01.jpg",
+        "slug": "mount-democrat"
     },
     {
         "mountain_peak": "Capitol Peak",
@@ -447,7 +476,8 @@
         "difficulty": "Class 4",
         "traffic_low": 1000,
         "traffic_high": 3000,
-        "photo": "https://www.14ers.com/photos/capitolpeak/peakphotos/large/200807_Capi02.jpg"
+        "photo": "https://www.14ers.com/photos/capitolpeak/peakphotos/large/200807_Capi02.jpg",
+        "slug": "capitol-peak"
     },
     {
         "mountain_peak": "Pikes Peak",
@@ -462,7 +492,8 @@
         "difficulty": "Class 1",
         "traffic_low": 15000,
         "traffic_high": 20000,
-        "photo": "https://www.14ers.com/photos/pikespeak/peakphotos/large/201506_Pikes01.jpg"
+        "photo": "https://www.14ers.com/photos/pikespeak/peakphotos/large/201506_Pikes01.jpg",
+        "slug": "pikes-peak"
     },
     {
         "mountain_peak": "Snowmass Mountain",
@@ -477,7 +508,8 @@
         "difficulty": "Hard Class 3",
         "traffic_low": 1000,
         "traffic_high": 3000,
-        "photo": "https://www.14ers.com/photos/snowmassmtn/peakphotos/large/200907_Snow01.jpg"
+        "photo": "https://www.14ers.com/photos/snowmassmtn/peakphotos/large/200907_Snow01.jpg",
+        "slug": "snowmass-mountain"
     },
     {
         "mountain_peak": "Windom Peak",
@@ -492,7 +524,8 @@
         "difficulty": "Hard Class 2",
         "traffic_low": 3000,
         "traffic_high": 5000,
-        "photo": "https://www.14ers.com/photos/windomgroup/peakphotos/large/200607_Wind01.jpg"
+        "photo": "https://www.14ers.com/photos/windomgroup/peakphotos/large/200607_Wind01.jpg",
+        "slug": "windom-peak"
     },
     {
         "mountain_peak": "Mount Eolus",
@@ -507,7 +540,8 @@
         "difficulty": "Class 3",
         "traffic_low": 3000,
         "traffic_high": 5000,
-        "photo": "https://www.14ers.com/photos/windomgroup/peakphotos/large/200607_Eolus01.jpg"
+        "photo": "https://www.14ers.com/photos/windomgroup/peakphotos/large/200607_Eolus01.jpg",
+        "slug": "mount-eolus"
     },
     {
         "mountain_peak": "Challenger Point",
@@ -522,7 +556,8 @@
         "difficulty": "Hard Class 2",
         "traffic_low": 1000,
         "traffic_high": 3000,
-        "photo": "https://www.14ers.com/photos/kitcarsongroup/peakphotos/large/200707_chal01.jpg"
+        "photo": "https://www.14ers.com/photos/kitcarsongroup/peakphotos/large/200707_chal01.jpg",
+        "slug": "challenger-point"
     },
     {
         "mountain_peak": "Mount Columbia",
@@ -537,7 +572,8 @@
         "difficulty": "Class 2",
         "traffic_low": 3000,
         "traffic_high": 5000,
-        "photo": "https://www.14ers.com/photos/harvardgroup/peakphotos/large/201005_Colu01.jpg"
+        "photo": "https://www.14ers.com/photos/harvardgroup/peakphotos/large/201005_Colu01.jpg",
+        "slug": "mount-columbia"
     },
     {
         "mountain_peak": "Missouri Mountain",
@@ -552,7 +588,8 @@
         "difficulty": "Class 2",
         "traffic_low": 3000,
         "traffic_high": 5000,
-        "photo": "https://www.14ers.com/photos/belfordgroup/peakphotos/large/200706_Miss01.jpg"
+        "photo": "https://www.14ers.com/photos/belfordgroup/peakphotos/large/200706_Miss01.jpg",
+        "slug": "missouri-mountain"
     },
     {
         "mountain_peak": "Humboldt Peak",
@@ -567,7 +604,8 @@
         "difficulty": "Class 2",
         "traffic_low": 1000,
         "traffic_high": 3000,
-        "photo": "https://www.14ers.com/photos/crestonegroup/peakphotos/large/201607_Humb01.jpg"
+        "photo": "https://www.14ers.com/photos/crestonegroup/peakphotos/large/201607_Humb01.jpg",
+        "slug": "humboldt-peak"
     },
     {
         "mountain_peak": "Mount Bierstadt",
@@ -582,7 +620,8 @@
         "difficulty": "Class 2",
         "traffic_low": 35000,
         "traffic_high": 40000,
-        "photo": "https://www.14ers.com/photos/evansgroup/peakphotos/large/200607_Bier01.jpg"
+        "photo": "https://www.14ers.com/photos/evansgroup/peakphotos/large/200607_Bier01.jpg",
+        "slug": "mount-bierstadt"
     },
     {
         "mountain_peak": "Sunlight Peak",
@@ -597,7 +636,8 @@
         "difficulty": "Class 4",
         "traffic_low": 3000,
         "traffic_high": 5000,
-        "photo": "https://www.14ers.com/photos/windomgroup/peakphotos/large/200708_Sunl01.jpg"
+        "photo": "https://www.14ers.com/photos/windomgroup/peakphotos/large/200708_Sunl01.jpg",
+        "slug": "sunlight-peak"
     },
     {
         "mountain_peak": "Handies Peak",
@@ -612,7 +652,8 @@
         "difficulty": "Class 1",
         "traffic_low": 5000,
         "traffic_high": 7000,
-        "photo": "https://www.14ers.com/photos/handiespeak/peakphotos/large/200707_Hand03.jpg"
+        "photo": "https://www.14ers.com/photos/handiespeak/peakphotos/large/200707_Hand03.jpg",
+        "slug": "handies-peak"
     },
     {
         "mountain_peak": "Culebra Peak",
@@ -627,7 +668,8 @@
         "difficulty": "Class 2",
         "traffic_low": 1000,
         "traffic_high": 3000,
-        "photo": "https://www.14ers.com/photos/culebrapeak/peakphotos/large/201508_Cule01.jpg"
+        "photo": "https://www.14ers.com/photos/culebrapeak/peakphotos/large/201508_Cule01.jpg",
+        "slug": "culebra-peak"
     },
     {
         "mountain_peak": "Ellingwood Point",
@@ -642,7 +684,8 @@
         "difficulty": "Hard Class 2",
         "traffic_low": 1000,
         "traffic_high": 3000,
-        "photo": "https://www.14ers.com/photos/blancagroup/peakphotos/large/200607_Elli01.jpg"
+        "photo": "https://www.14ers.com/photos/blancagroup/peakphotos/large/200607_Elli01.jpg",
+        "slug": "ellingwood-point"
     },
     {
         "mountain_peak": "Mount Lindsey",
@@ -657,7 +700,8 @@
         "difficulty": "Easy Class 3",
         "traffic_low": 1000,
         "traffic_high": 3000,
-        "photo": "https://www.14ers.com/photos/mtlindsey/peakphotos/large/200606_Lind01.jpg"
+        "photo": "https://www.14ers.com/photos/mtlindsey/peakphotos/large/200606_Lind01.jpg",
+        "slug": "mount-lindsey"
     },
     {
         "mountain_peak": "Little Bear Peak",
@@ -672,7 +716,8 @@
         "difficulty": "Class 4",
         "traffic_low": 1000,
         "traffic_high": 3000,
-        "photo": "https://www.14ers.com/photos/blancagroup/peakphotos/large/200607_Litt01.jpg"
+        "photo": "https://www.14ers.com/photos/blancagroup/peakphotos/large/200607_Litt01.jpg",
+        "slug": "little-bear-peak"
     },
     {
         "mountain_peak": "Mount Sherman",
@@ -687,7 +732,8 @@
         "difficulty": "Class 2",
         "traffic_low": 20000,
         "traffic_high": 25000,
-        "photo": "https://www.14ers.com/photos/mtsherman/peakphotos/large/201207_Sher02.jpg"
+        "photo": "https://www.14ers.com/photos/mtsherman/peakphotos/large/201207_Sher02.jpg",
+        "slug": "mount-sherman"
     },
     {
         "mountain_peak": "Redcloud Peak",
@@ -702,7 +748,8 @@
         "difficulty": "Class 2",
         "traffic_low": 3000,
         "traffic_high": 5000,
-        "photo": "https://www.14ers.com/photos/redcloudgroup/peakphotos/large/201610_Redc02.jpg"
+        "photo": "https://www.14ers.com/photos/redcloudgroup/peakphotos/large/201610_Redc02.jpg",
+        "slug": "redcloud-peak"
     },
     {
         "mountain_peak": "Pyramid Peak",
@@ -717,7 +764,8 @@
         "difficulty": "Class 4",
         "traffic_low": 1000,
         "traffic_high": 3000,
-        "photo": "https://www.14ers.com/photos/maroongroup/peakphotos/large/200807_Pyra01.jpg"
+        "photo": "https://www.14ers.com/photos/maroongroup/peakphotos/large/200807_Pyra01.jpg",
+        "slug": "pyramid-peak"
     },
     {
         "mountain_peak": "Wilson Peak",
@@ -732,7 +780,8 @@
         "difficulty": "Class 3",
         "traffic_low": 1000,
         "traffic_high": 3000,
-        "photo": "https://www.14ers.com/photos/wilsongroup/peakphotos/large/200604_Wils01.jpg"
+        "photo": "https://www.14ers.com/photos/wilsongroup/peakphotos/large/200604_Wils01.jpg",
+        "slug": "wilson-peak"
     },
     {
         "mountain_peak": "San Luis Peak",
@@ -747,7 +796,8 @@
         "difficulty": "Class 1",
         "traffic_low": 3000,
         "traffic_high": 5000,
-        "photo": "https://www.14ers.com/photos/sanluispeak/peakphotos/large/201807_San01.jpg"
+        "photo": "https://www.14ers.com/photos/sanluispeak/peakphotos/large/201807_San01.jpg",
+        "slug": "san-luis-peak"
     },
     {
         "mountain_peak": "Wetterhorn Peak",
@@ -762,7 +812,8 @@
         "difficulty": "Class 3",
         "traffic_low": 3000,
         "traffic_high": 5000,
-        "photo": "https://www.14ers.com/photos/wetterhornpeak/peakphotos/large/201106_Wett01.jpg"
+        "photo": "https://www.14ers.com/photos/wetterhornpeak/peakphotos/large/201106_Wett01.jpg",
+        "slug": "wetterhorn-peak"
     },
     {
         "mountain_peak": "Mount of the Holy Cross",
@@ -777,7 +828,8 @@
         "difficulty": "Class 2",
         "traffic_low": 3000,
         "traffic_high": 5000,
-        "photo": "https://www.14ers.com/photos/mtholycross/peakphotos/large/200706_Holy01.jpg"
+        "photo": "https://www.14ers.com/photos/mtholycross/peakphotos/large/200706_Holy01.jpg",
+        "slug": "mount-of-the-holy-cross"
     },
     {
         "mountain_peak": "Huron Peak",
@@ -792,7 +844,8 @@
         "difficulty": "Class 2",
         "traffic_low": 5000,
         "traffic_high": 7000,
-        "photo": "https://www.14ers.com/photos/huronpeak/peakphotos/large/201607_Huro01.jpg"
+        "photo": "https://www.14ers.com/photos/huronpeak/peakphotos/large/201607_Huro01.jpg",
+        "slug": "huron-peak"
     },
     {
         "mountain_peak": "Sunshine Peak",
@@ -807,7 +860,8 @@
         "difficulty": "Class 2",
         "traffic_low": 3000,
         "traffic_high": 5000,
-        "photo": "https://www.14ers.com/photos/redcloudgroup/peakphotos/large/200606_Sun01.jpg"
+        "photo": "https://www.14ers.com/photos/redcloudgroup/peakphotos/large/200606_Sun01.jpg",
+        "slug": "sunshine-peak"
     },
     {
         "mountain_peak": "Mt. Cameron",
@@ -822,7 +876,8 @@
         "difficulty": "Class 2",
         "traffic_low": 15000,
         "traffic_high": 20000,
-        "photo": "https://www.14ers.com/photos/lincolngroup/peakphotos/large/200505_Linc01.jpg"
+        "photo": "https://www.14ers.com/photos/lincolngroup/peakphotos/large/200505_Linc01.jpg",
+        "slug": "mt-cameron"
     },
     {
         "mountain_peak": "El Diente Peak",
@@ -837,7 +892,8 @@
         "difficulty": "Class 3",
         "traffic_low": 1000,
         "traffic_high": 3000,
-        "photo": "https://www.14ers.com/photos/wilsongroup/peakphotos/large/201007_ElD01.jpg"
+        "photo": "https://www.14ers.com/photos/wilsongroup/peakphotos/large/201007_ElD01.jpg",
+        "slug": "el-diente-peak"
     },
     {
         "mountain_peak": "Conundrum Peak",
@@ -852,7 +908,8 @@
         "difficulty": "Hard Class 2",
         "traffic_low": 1000,
         "traffic_high": 3000,
-        "photo": "https://www.14ers.com/photos/castlegroup/peakphotos/large/200807_Cast01.jpg"
+        "photo": "https://www.14ers.com/photos/castlegroup/peakphotos/large/200807_Cast01.jpg",
+        "slug": "conundrum-peak"
     },
     {
         "mountain_peak": "North Eolus",
@@ -867,7 +924,8 @@
         "difficulty": "Class 3",
         "traffic_low": 3000,
         "traffic_high": 5000,
-        "photo": "https://www.14ers.com/photos/windomgroup/peakphotos/large/200607_Eolus01.jpg"
+        "photo": "https://www.14ers.com/photos/windomgroup/peakphotos/large/200607_Eolus01.jpg",
+        "slug": "north-eolus"
     },
     {
         "mountain_peak": "North Maroon Peak",
@@ -882,6 +940,7 @@
         "difficulty": "Class 4",
         "traffic_low": 1000,
         "traffic_high": 3000,
-        "photo": "https://www.14ers.com/photos/maroongroup/peakphotos/large/200807_NMar01.jpg"
+        "photo": "https://www.14ers.com/photos/maroongroup/peakphotos/large/200807_NMar01.jpg",
+        "slug": "north-maroon-peak"
     }
 ]

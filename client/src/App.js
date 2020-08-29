@@ -8,6 +8,7 @@ import {
 
 // routes
 import ColoradoMap from './routes/ColoradoMap'
+import FourteenerMap from './routes/FourteenerMap'
 
 // styles
 import './css/styles.css'
@@ -18,7 +19,7 @@ function App() {
       <div>
         <Switch>
           <Route exact path="/" component={ColoradoMap} />
-          <Route exact path="/:slug" component={ColoradoMap} />
+          <Route exact path="/:slug" component={FourteenerMap} />
         </Switch>
       </div>
     </Router>

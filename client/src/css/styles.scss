@@ -27,6 +27,19 @@
     }
 }
 
+.check-in {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    button {
+        background-color: #6a4025;
+        &:focus,
+        &:hover {
+            background-color: #6a4025;
+        }
+    }
+}
+
 .fullscreen-control {
     position: absolute;
     top: 36px;

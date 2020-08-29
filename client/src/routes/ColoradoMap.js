@@ -83,8 +83,8 @@ const ColoradoMap = () => {
     const handleViewportChange = viewport => {
         // destructure viewport
         const {
-            latitude: latitude,
-            longitude: longitude
+            latitude,
+            longitude
         } = viewport
 
         // destructure colorado bounds
@@ -122,7 +122,7 @@ const ColoradoMap = () => {
                     longitude={popupInfo.longitude}
                     latitude={popupInfo.latitude}
                     closeButton={false}
-                    closeOnClick={true}
+                    closeOnClick={false}
                     onClose={resetPopup}
                 >
                     <PopupInfo info={popupInfo} />

@@ -1,5 +1,6 @@
 // dependencies
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const PopupInfo = ({ info }) => {
     // destructure info
@@ -11,7 +12,8 @@ const PopupInfo = ({ info }) => {
         distance_mi,
         elevation_gain_ft,
         difficulty,
-        photo
+        photo,
+        slug
     } = info
 
     return (
@@ -49,10 +51,10 @@ const PopupInfo = ({ info }) => {
                     </tr>
                 </tbody>
             </table>
-            <button className="btn details">
+            <Link to={`/${slug}`} className="btn details">
                 Check-in
                 <i className="material-icons right">pin_drop</i>
-            </button>
+            </Link>
         </div>
     )
 }

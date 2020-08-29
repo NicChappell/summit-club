@@ -19,7 +19,7 @@ export default class Pins extends PureComponent {
 
         return data.map((fourteener, index) => (
             <Marker
-                key={`marker-${index}`}
+                key={index}
                 longitude={fourteener.longitude}
                 latitude={fourteener.latitude}
             >

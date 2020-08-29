@@ -16,7 +16,11 @@ router.get('/fourteeners', function (req, res) {
 // @route:  GET /api/fourteeners/:slug
 // @desc:   Select single fourteener record
 router.get('/fourteeners/:slug', function (req, res) {
-    res.json(fourteeners[0]);
+    var fourteener = fourteeners.filter(fourteener => {
+        return fourteener.slug === req.params.slug;
+    });
+
+    res.json(fourteener[0]);
 });
 
 module.exports = router;
