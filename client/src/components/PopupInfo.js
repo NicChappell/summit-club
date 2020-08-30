@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom'
 const PopupInfo = ({ info }) => {
     // destructure info
     const {
-        mountain_peak,
-        mountain_range,
-        elevation_ft,
-        standard_route,
-        distance_mi,
-        elevation_gain_ft,
+        mountainPeak,
+        mountainRange,
+        elevationFeet,
+        standardRoute,
+        distanceMiles,
+        elevationGainFeet,
         difficulty,
         photo,
         slug
@@ -18,32 +18,32 @@ const PopupInfo = ({ info }) => {
 
     return (
         <div className="popup-info">
-            <img alt={mountain_peak} src={photo} />
+            <img alt={mountainPeak} src={photo} />
             <table className="striped">
                 <tbody>
                     <tr>
                         <td>Mountain Peak</td>
-                        <td>{mountain_peak}</td>
+                        <td>{mountainPeak}</td>
                     </tr>
                     <tr>
                         <td>Mountain Range</td>
-                        <td>{mountain_range}</td>
+                        <td>{mountainRange}</td>
                     </tr>
                     <tr>
                         <td>Elevation</td>
-                        <td>{elevation_ft} feet</td>
+                        <td>{elevationFeet} feet</td>
                     </tr>
                     <tr>
                         <td>Standard Route</td>
-                        <td>{standard_route}</td>
+                        <td>{standardRoute}</td>
                     </tr>
                     <tr>
                         <td>Distance</td>
-                        <td>{distance_mi} miles</td>
+                        <td>{distanceMiles} miles</td>
                     </tr>
                     <tr>
                         <td>Elevation Gain</td>
-                        <td>{elevation_gain_ft} feet</td>
+                        <td>{elevationGainFeet} feet</td>
                     </tr>
                     <tr>
                         <td>Difficulty</td>

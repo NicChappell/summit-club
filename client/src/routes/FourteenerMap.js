@@ -8,8 +8,8 @@ import MapGL, {
     NavigationControl
 } from 'react-map-gl'
 import { useParams } from 'react-router-dom'
-import isEmpty from 'lodash.isempty'
 import axios from 'axios'
+import isEmpty from 'lodash.isempty'
 
 // components
 import CheckIn from '../components/CheckIn'

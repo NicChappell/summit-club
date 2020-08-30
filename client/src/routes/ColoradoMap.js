@@ -11,7 +11,7 @@ import isEmpty from 'lodash.isempty'
 import axios from 'axios'
 
 // components
-import Pins from '../components/Pins'
+import Markers from '../components/Markers'
 import PopupInfo from '../components/PopupInfo'
 
 // utilities
@@ -58,8 +58,6 @@ const ColoradoMap = () => {
             latitude: location.latitude,
             longitude: location.longitude
         }
-
-        console.log(calcDist(a, b))
     }
 
     const handleGeolocate = ({ coords }) => {
@@ -141,7 +139,6 @@ const ColoradoMap = () => {
         var b = { latitude: 39.123, longitude: -75.534 }
 
         var mrah = calcDist(a, b)
-        console.log(mrah)
     }, [])
 
     return (
@@ -156,7 +153,7 @@ const ColoradoMap = () => {
             transitionInterpolator={new LinearInterpolator()}
             width='100vw'
         >
-            <Pins
+            <Markers
                 data={fourteeners}
                 handleMarkerClick={handleMarkerClick}
             />
