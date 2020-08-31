@@ -57,7 +57,17 @@ const FourteenerMap = () => {
     // react router hooks
     const { slug } = useParams()
 
-    const handleClick = () => console.log(distance)
+    const handleClick = () => {
+        const payload = {
+            "id": "5f4c5feaf6dd3f66110aa295",
+            "fourteener": fourteener._id
+        }
+
+        // update fourteener and update state
+        axios.put('/api/v1/users/check-in', payload)
+            .then(res => console.log(res.data))
+            .catch(err => console.log(err))
+    }
 
     const handleGeolocate = ({ coords }) => {
         // destructore coords
