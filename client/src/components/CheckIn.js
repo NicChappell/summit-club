@@ -8,7 +8,7 @@ const CheckIn = (props) => {
         handleClick
     } = props
 
-    // state hook variables
+    // state hooks
     const [] = useState('')
     return (
         <button

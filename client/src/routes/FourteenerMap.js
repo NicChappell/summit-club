@@ -1,5 +1,9 @@
 // dependencies
-import React, { useEffect, useState } from 'react'
+import React, {
+    useEffect,
+    useRef,
+    useState
+} from 'react'
 import MapGL, {
     FullscreenControl,
     GeolocateControl,
@@ -17,16 +21,6 @@ import CheckIn from '../components/CheckIn'
 // utilities
 import { calcDist } from '../utils'
 
-// styles
-import 'mapbox-gl/dist/mapbox-gl.css'
-
-const coloradoBounds = {
-    north: 41.003444,
-    south: 36.992426,
-    east: -102.041574,
-    west: -109.060062
-}
-
 const coloradoCenter = {
     latitude: 38.997935,
     longitude: -105.550818
@@ -35,19 +29,22 @@ const coloradoCenter = {
 const initState = {
     latitude: coloradoCenter.latitude,
     longitude: coloradoCenter.longitude,
-    zoom: 7, // between 0 and 22
+    zoom: 8, // between 0 and 22
     bearing: 0, // degrees between 0 and 360
     pitch: 0 // degrees between 0 and 60
 }
 
 const ICON = `M20.2,15.7L20.2,15.7c1.1-1.6,1.8-3.6,1.8-5.7c0-5.6-4.5-10-10-10S2,4.5,2,10c0,2,0.6,3.9,1.6,5.4c0,0.1,0.1,0.2,0.2,0.3
-  c0,0,0.1,0.1,0.1,0.2c0.2,0.3,0.4,0.6,0.7,0.9c2.6,3.1,7.4,7.6,7.4,7.6s4.8-4.5,7.4-7.5c0.2-0.3,0.5-0.6,0.7-0.9
-  C20.1,15.8,20.2,15.8,20.2,15.7z`
+c0,0,0.1,0.1,0.1,0.2c0.2,0.3,0.4,0.6,0.7,0.9c2.6,3.1,7.4,7.6,7.4,7.6s4.8-4.5,7.4-7.5c0.2-0.3,0.5-0.6,0.7-0.9
+C20.1,15.8,20.2,15.8,20.2,15.7z`
 
 const SIZE = 20
 
 const FourteenerMap = () => {
-    // state hook variables
+    // ref hooks
+    const mapRef = useRef(null)
+
+    // state hooks
     const [disabled, setDisabled] = useState(true)
     const [distance, setDistance] = useState(undefined)
     const [fourteener, setFourteener] = useState({})
@@ -76,8 +73,8 @@ const FourteenerMap = () => {
             longitude
         } = coords
 
-        // update state
         setLocation({ latitude, longitude })
+        console.log(coords)
     }
 
     const handleLoad = () => {
@@ -87,7 +84,22 @@ const FourteenerMap = () => {
             .catch(err => console.log(err))
     }
 
-    const handleViewportChange = viewport => setViewport(viewport)
+    const handleViewportChange = viewport => {
+        if (
+            viewport.latitude > (fourteener.latitude + 2) ||
+            viewport.latitude < (fourteener.latitude - 2) ||
+            viewport.longitude > (fourteener.longitude + 2) ||
+            viewport.longitude < (fourteener.longitude - 2)
+        ) {
+            setViewport({
+                ...viewport,
+                latitude: fourteener.latitude,
+                longitude: fourteener.longitude
+            })
+        } else {
+            setViewport(viewport)
+        }
+    }
 
     const renderMarker = () => {
         if (!isEmpty(fourteener)) {
@@ -115,13 +127,23 @@ const FourteenerMap = () => {
         }
     }
 
+    // update state when distance changes
+    useEffect(() => {
+        distance < 30
+            ? setDisabled(false)
+            : setDisabled(true)
+    }, [distance])
+
     // update state when fourteener changes
     useEffect(() => {
-        setViewport({
-            ...viewport,
-            latitude: fourteener.latitude,
-            longitude: fourteener.longitude
-        })
+        if (!isEmpty(fourteener)) {
+            setViewport({
+                ...viewport,
+                latitude: fourteener.latitude,
+                longitude: fourteener.longitude,
+                zoom: 12
+            })
+        }
     }, [fourteener])
 
     // update state when location changes
@@ -137,17 +159,8 @@ const FourteenerMap = () => {
             }
 
             setDistance(calcDist(a, b))
-        } else {
-            setDistance(undefined)
         }
     }, [location])
-
-    // update state when distance changes
-    useEffect(() => {
-        distance < 30
-            ? setDisabled(false)
-            : setDisabled(true)
-    }, [distance])
 
     return (
         <MapGL
@@ -156,6 +169,7 @@ const FourteenerMap = () => {
             mapStyle="mapbox://styles/nicchappell/cke921s5l0bf919t8tuen8b08"
             onLoad={handleLoad}
             onViewportChange={handleViewportChange}
+            ref={mapRef}
             transitionDuration={1000}
             transitionInterpolator={new LinearInterpolator()}
             width='100vw'
@@ -165,6 +179,7 @@ const FourteenerMap = () => {
             <div className="geolacte-control">
                 <GeolocateControl
                     onGeolocate={handleGeolocate}
+                    onViewportChange={() => console.log("how to handle this onViewportChange() event!?")}
                     positionOptions={{ enableHighAccuracy: true }}
                     trackUserLocation={true}
                 />

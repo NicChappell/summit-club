@@ -1,8 +1,7 @@
 // dependencies
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import MapGL, {
     FullscreenControl,
-    GeolocateControl,
     LinearInterpolator,
     NavigationControl,
     Popup
@@ -14,18 +13,10 @@ import axios from 'axios'
 import Markers from '../components/Markers'
 import PopupInfo from '../components/PopupInfo'
 
-// utilities
-import { calcDist } from '../utils'
-
-// styles
-import 'mapbox-gl/dist/mapbox-gl.css'
-
-const coloradoBounds = {
-    north: 41.003444,
-    south: 36.992426,
-    east: -102.041574,
-    west: -109.060062
-}
+const coloradoBounds = [
+    [-109.060062, 36.992426], // [west, south]
+    [-102.041574, 41.003444]  // [east, north]
+]
 
 const coloradoCenter = {
     latitude: 38.997935,
@@ -41,34 +32,13 @@ const initState = {
 }
 
 const ColoradoMap = () => {
-    // state hook variables
+    // state hooks
     const [fourteeners, setFourteeners] = useState([])
-    const [location, setLocation] = useState({})
     const [popupInfo, setPopupInfo] = useState({})
     const [viewport, setViewport] = useState(initState)
 
     const handleMarkerClick = fourteener => {
         setPopupInfo(fourteener)
-
-        const a = {
-            latitude: fourteener.latitude,
-            longitude: fourteener.longitude
-        }
-        const b = {
-            latitude: location.latitude,
-            longitude: location.longitude
-        }
-    }
-
-    const handleGeolocate = ({ coords }) => {
-        // destructore coords
-        const {
-            latitude,
-            longitude
-        } = coords
-
-        // update state
-        setLocation({ latitude, longitude })
     }
 
     const handleLoad = () => {
@@ -86,14 +56,15 @@ const ColoradoMap = () => {
         } = viewport
 
         // destructure colorado bounds
-        const {
-            north,
-            south,
-            east,
-            west
-        } = coloradoBounds
+        const [sw, ne] = coloradoBounds
 
-        // reset state if out-of-bounds
+        // destructure sw
+        const [west, south] = sw
+
+        // destructure ne
+        const [east, north] = ne
+
+        // reset viewport if out-of-bounds
         if (latitude > (north + 0.5) || latitude < (south - 0.5)) {
             setViewport({
                 ...viewport,
@@ -133,14 +104,6 @@ const ColoradoMap = () => {
 
     const resetPopup = () => setPopupInfo({})
 
-    // calculate distance after component mounts
-    useEffect(() => {
-        var a = { latitude: 39.984, longitude: -75.343 }
-        var b = { latitude: 39.123, longitude: -75.534 }
-
-        var mrah = calcDist(a, b)
-    }, [])
-
     return (
         <MapGL
             {...viewport}
@@ -159,14 +122,6 @@ const ColoradoMap = () => {
             />
 
             {renderPopup()}
-
-            <div className="geolacte-control">
-                <GeolocateControl
-                    onGeolocate={handleGeolocate}
-                    positionOptions={{ enableHighAccuracy: true }}
-                    trackUserLocation={true}
-                />
-            </div>
 
             <div className="fullscreen-control">
                 <FullscreenControl />

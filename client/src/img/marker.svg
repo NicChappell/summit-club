@@ -1,1 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400"><defs><style>.cls-1{fill:#6a4025;}.cls-2{fill:#fff;}</style></defs><title>marker</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M150,0h0A149.81,149.81,0,0,0,0,150c0,28.94,9.24,56.56,22.1,79.27l97.76,154.15C126,394.47,138.35,400,150,400a35,35,0,0,0,30.14-16.58l97.76-154c13-22.71,22.1-49.83,22.1-79.27A149.9,149.9,0,0,0,150,0Z"/><circle class="cls-2" cx="150" cy="139.55" r="54.76"/></g></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 300 400" style="enable-background:new 0 0 300 400;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#6A4025;}
+	.st1{fill:#FFFFFF;}
+</style>
+<path class="st0" d="M150,0L150,0C67.3-0.1,0.1,66.9,0,149.6c0,0.1,0,0.3,0,0.4c0,28.9,9.2,56.6,22.1,79.3l97.8,154.1
+	C126,394.5,138.4,400,150,400c12.3,0.1,23.7-6.2,30.1-16.6l97.8-154c13-22.7,22.1-49.8,22.1-79.3C300.1,67.4,233.1,0.1,150.4,0
+	C150.2,0,150.1,0,150,0z"/>
+<circle class="st1" cx="150" cy="139.6" r="54.8"/>
+</svg>

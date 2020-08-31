@@ -12,6 +12,7 @@ import ColoradoMap from './routes/ColoradoMap'
 import FourteenerMap from './routes/FourteenerMap'
 
 // styles
+import 'mapbox-gl/dist/mapbox-gl.css'
 import './css/styles.css'
 
 function App() {
