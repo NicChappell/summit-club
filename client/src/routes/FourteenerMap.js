@@ -74,7 +74,6 @@ const FourteenerMap = () => {
         } = coords
 
         setLocation({ latitude, longitude })
-        console.log(coords)
     }
 
     const handleLoad = () => {
