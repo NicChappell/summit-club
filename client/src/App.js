@@ -31,8 +31,7 @@ function App() {
         <Router>
             <div>
                 <Switch>
-                    <Route exact path="/" component={ColoradoMap} />
-                    <Route exact path="/:slug" component={FourteenerMap} />
+                    <Route path="/" component={ColoradoMap} />
                 </Switch>
             </div>
         </Router>

@@ -1,3 +1,7 @@
+.mapboxgl-ctrl-bottom-right {
+  display: none !important;
+}
+
 .details {
   background-color: #6a4025;
   margin-top: 1.25rem;
@@ -8,21 +12,38 @@
 
 .check-in {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 5px;
+  right: 5px;
 }
 .check-in button {
   background-color: #6a4025;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #ffffff;
 }
 .check-in button:focus, .check-in button:hover {
   background-color: #6a4025;
+  color: #ffffff;
+}
+.check-in button i {
+  color: #ffffff;
 }
 
-.fullscreen-control {
+.reset-viewport {
   position: absolute;
-  top: 36px;
-  left: 0;
-  padding: 10px;
+  bottom: 5px;
+  right: 5px;
+}
+.reset-viewport button {
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #6a4025;
+}
+.reset-viewport button:focus, .reset-viewport button:hover {
+  background-color: #ffffff;
+  color: #6a4025;
+}
+.reset-viewport button i {
+  color: #6a4025;
 }
 
 .geolacte-control {
@@ -34,7 +55,7 @@
 
 .navigation-control {
   position: absolute;
-  top: 72px;
+  top: 36px;
   left: 0;
   padding: 10px;
 }

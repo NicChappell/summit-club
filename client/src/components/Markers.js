@@ -1,23 +1,19 @@
-import * as React from 'react'
+import React from 'react'
 import { PureComponent } from 'react'
 import { Marker } from 'react-map-gl'
 
-const ICON = `M20.2,15.7L20.2,15.7c1.1-1.6,1.8-3.6,1.8-5.7c0-5.6-4.5-10-10-10S2,4.5,2,10c0,2,0.6,3.9,1.6,5.4c0,0.1,0.1,0.2,0.2,0.3
-  c0,0,0.1,0.1,0.1,0.2c0.2,0.3,0.4,0.6,0.7,0.9c2.6,3.1,7.4,7.6,7.4,7.6s4.8-4.5,7.4-7.5c0.2-0.3,0.5-0.6,0.7-0.9
-  C20.1,15.8,20.2,15.8,20.2,15.7z`
+const ICON = `M7.5,0L7.5,0C3.4,0,0,3.3,0,7.5c0,0,0,0,0,0c0,1.4,0.5,2.8,1.1,4L6,19.2C6.3,19.7,6.9,20,7.5,20
+c0.6,0,1.2-0.3,1.5-0.8l4.9-7.7c0.6-1.1,1.1-2.5,1.1-4C15,3.4,11.7,0,7.5,0C7.5,0,7.5,0,7.5,0z`
 
 const SIZE = 20
 
 // use pure component for best performance
-class Markers extends PureComponent {
+class Markers extends React.PureComponent {
     render() {
         // destructure props
-        const {
-            data,
-            handleMarkerClick
-        } = this.props
+        const { fourteeners } = this.props
 
-        return data.map((fourteener, index) => (
+        return fourteeners.map((fourteener, index) => (
             <Marker
                 key={index}
                 longitude={fourteener.longitude}
@@ -25,16 +21,14 @@ class Markers extends PureComponent {
             >
                 <svg
                     height={SIZE}
-                    viewBox="0 0 24 24"
+                    viewBox="0 0 15 20"
                     style={{
                         cursor: 'pointer',
-                        fill: '#6a4025',
-                        stroke: 'none',
                         transform: `translate(${-SIZE / 2}px, ${-SIZE}px)`
                     }}
-                    onClick={() => handleMarkerClick(fourteener)}
                 >
-                    <path d={ICON} />
+                    <path d={ICON} fill="#6a4025" stroke="none" />
+                    <circle cx="7.5" cy="7" r="2.7" fill="#ffffff" stroke="none" />
                 </svg>
             </Marker>
         ))

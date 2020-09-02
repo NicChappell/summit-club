@@ -12,7 +12,7 @@ const CheckIn = (props) => {
     const [] = useState('')
     return (
         <button
-            className="btn-floating btn-large drop-pin"
+            className="btn-floating btn-large check-in"
             disabled={disabled}
             onClick={handleClick}
         >

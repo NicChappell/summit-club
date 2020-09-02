@@ -5,7 +5,6 @@ import React, {
     useState
 } from 'react'
 import MapGL, {
-    FullscreenControl,
     GeolocateControl,
     LinearInterpolator,
     Marker,
@@ -17,6 +16,7 @@ import isEmpty from 'lodash.isempty'
 
 // components
 import CheckIn from '../components/CheckIn'
+import ResetViewport from '../components/ResetViewport'
 
 // utilities
 import { calcDist } from '../utils'
@@ -184,10 +184,6 @@ const FourteenerMap = () => {
                 />
             </div>
 
-            <div className="fullscreen-control">
-                <FullscreenControl />
-            </div>
-
             <div className="navigation-control">
                 <NavigationControl />
             </div>
@@ -197,6 +193,10 @@ const FourteenerMap = () => {
                     disabled={disabled}
                     handleClick={handleClick}
                 />
+            </div>
+
+            <div className="reset-viewport">
+                <ResetViewport />
             </div>
         </MapGL>
     )
