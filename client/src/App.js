@@ -7,10 +7,11 @@ import {
 } from 'react-router-dom'
 
 // routes
-import Home from './routes/Home'
+import ColoradoMap from './routes/ColoradoMap'
 
 // components
-import Navigation from './components/Navigation'
+import NavBottom from './components/NavBottom'
+import NavTop from './components/NavTop'
 
 // styles
 import 'mapbox-gl/dist/mapbox-gl.css'
@@ -19,14 +20,15 @@ import './css/styles.css'
 function App() {
     return (
         <div className="app">
-            <Navigation />
+            <NavTop />
             <Router>
                 <div className="router">
                     <Switch>
-                        <Route path="/" component={Home} />
+                        <Route path="/" component={ColoradoMap} />
                     </Switch>
                 </div>
             </Router>
+            <NavBottom />
         </div>
     )
 }

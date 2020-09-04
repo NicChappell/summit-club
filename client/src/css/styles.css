@@ -3,100 +3,19 @@
   flex-direction: column;
   height: 100vh;
 }
-.app .navigation .left,
-.app .navigation .right {
-  height: 56px;
-}
-.app .router {
-  flex: 1 0 auto;
-}
-.app .router .home .map {
-  height: calc(100vh - 56px);
-}
-.app .router .home .fourteener .check-in {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-}
-.app .router .home .fourteener .check-in button {
-  background-color: #6a4025;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  color: #ffffff;
-}
-.app .router .home .fourteener .check-in button:focus, .app .router .home .fourteener .check-in button:hover {
-  background-color: #6a4025;
-  color: #ffffff;
-}
-.app .router .home .fourteener .check-in button i {
-  color: #ffffff;
-}
-.app .router .home .fourteener .reset-viewport {
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
-}
-.app .router .home .fourteener .reset-viewport button {
+.app .navigation-bottom,
+.app .navigation-top {
   background-color: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  color: #6a4025;
-}
-.app .router .home .fourteener .reset-viewport button:focus, .app .router .home .fourteener .reset-viewport button:hover {
-  background-color: #ffffff;
-  color: #6a4025;
-}
-.app .router .home .fourteener .reset-viewport button i {
-  color: #6a4025;
-}
-.app .router .home .fourteeners .chip {
-  background-color: #6a4025;
-  color: #ffffff;
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  z-index: 1;
-}
-.app .router .home .fourteeners .chip span {
-  padding-right: 8px;
-}
-.app .router .home .fourteeners .chip i {
-  cursor: pointer;
-  float: right;
-  font-size: 16px;
-  line-height: 32px;
-  color: #ffffff;
-}
-.app .router .home .fourteeners .fullscreen-control {
-  position: absolute;
-  top: 36px;
-  right: 0;
-  padding: 10px;
-}
-.app .router .home .fourteeners .geolacte-control {
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 10px;
-}
-.app .router .home .fourteeners .navigation-control {
-  position: absolute;
-  top: 72px;
-  right: 0;
-  padding: 10px;
-}
-.app .router .home .fourteeners .navigation-bottom {
-  background-color: #ffffff;
-  border-top: 10px solid #6a4025;
-  height: 200px;
   left: 0;
   position: fixed;
   transition: all 0.333s ease-out;
   width: 100%;
   z-index: 1;
 }
-.app .router .home .fourteeners .navigation-bottom .control {
+.app .navigation-bottom .control,
+.app .navigation-top .control {
   align-items: center;
   background-color: #6a4025;
-  border-radius: 2px 2px 0 0;
   color: #ffffff;
   cursor: pointer;
   display: flex;
@@ -105,13 +24,109 @@
   justify-content: center;
   left: calc(50% - (56px / 2));
   position: absolute;
-  top: calc(-28px - 10px);
   width: 56px;
 }
-.app .router .home .fourteeners .navigation-bottom .fourteener {
-  position: relative;
+.app .navigation-bottom {
+  border-top: 10px solid #6a4025;
+  height: 200px;
 }
-.app .router .home .fourteeners .details {
+.app .navigation-bottom .control {
+  border-radius: 2px 2px 0 0;
+  top: calc(-28px - 10px);
+}
+.app .navigation-top {
+  border-bottom: 10px solid #6a4025;
+  height: 100px;
+}
+.app .navigation-top .control {
+  border-radius: 0 0 2px 2px;
+  bottom: calc(-28px - 10px);
+}
+.app .router {
+  flex: 1 0 auto;
+}
+.app .router .fourteener .check-in {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+.app .router .fourteener .check-in button {
+  background-color: #6a4025;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+}
+.app .router .fourteener .check-in button:focus, .app .router .fourteener .check-in button:hover {
+  background-color: #6a4025;
+  color: #ffffff;
+}
+.app .router .fourteener .check-in button i {
+  color: #ffffff;
+}
+.app .router .fourteener .reset-viewport {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+.app .router .fourteener .reset-viewport button {
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #6a4025;
+}
+.app .router .fourteener .reset-viewport button:focus, .app .router .fourteener .reset-viewport button:hover {
+  background-color: #ffffff;
+  color: #6a4025;
+}
+.app .router .fourteener .reset-viewport button i {
+  color: #6a4025;
+}
+.app .router .fourteeners .fullscreen-control {
+  position: absolute;
+  top: 36px;
+  right: 0;
+  padding: 10px;
+}
+.app .router .fourteeners .geolacte-control {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+}
+.app .router .fourteeners .navigation-control {
+  position: absolute;
+  top: 72px;
+  right: 0;
+  padding: 10px;
+}
+
+.container .row {
+  margin: 0;
+  padding: 0;
+}
+.container .row .col {
+  margin: 0;
+  padding: 0;
+}
+
+.chip {
+  background-color: #6a4025;
+  color: #ffffff;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  z-index: 1;
+}
+.chip span {
+  padding-right: 8px;
+}
+.chip i {
+  cursor: pointer;
+  float: right;
+  font-size: 16px;
+  line-height: 32px;
+  color: #ffffff;
+}
+
+.details {
   background-color: #ffffff;
   height: 100%;
   left: 0;
@@ -123,26 +138,26 @@
   transition: 0.375s;
   z-index: 1;
 }
-.app .router .home .fourteeners .details button {
+.details button {
   background-color: #6a4025;
   color: #ffffff;
 }
-.app .router .home .fourteeners .details button:focus, .app .router .home .fourteeners .details button:hover {
+.details button:focus, .details button:hover {
   background-color: #6a4025;
   color: #ffffff;
 }
-.app .router .home .fourteeners .details button i {
+.details button i {
   color: #ffffff;
 }
-.app .router .home .fourteeners .details .close {
+.details .close {
   position: absolute;
   top: 5px;
   right: 5px;
 }
-.app .router .home .fourteeners .details .fourteener {
+.details .fourteener {
   padding: 10px;
 }
-.app .router .home .fourteeners .details .fourteener .photo {
+.details .fourteener .photo {
   background-color: #eeeeee;
   height: 120px;
   background-position: center;
@@ -150,23 +165,14 @@
   background-size: cover;
   width: 100%;
 }
-.app .router .home .fourteeners .details .fourteener table {
+.details .fourteener table {
   overflow: scroll;
 }
-.app .router .home .fourteeners .details .fourteener table td {
+.details .fourteener table td {
   white-space: nowrap;
 }
-.app .router .home .fourteeners .details .fourteener table td:first-child {
+.details .fourteener table td:first-child {
   font-weight: 700;
-}
-
-.container .row {
-  margin: 0;
-  padding: 0;
-}
-.container .row .col {
-  margin: 0;
-  padding: 0;
 }
 
 /*# sourceMappingURL=styles.css.map */

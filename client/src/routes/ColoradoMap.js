@@ -12,8 +12,8 @@ import axios from 'axios'
 import isEmpty from 'lodash.isempty'
 
 // components
-import Fourteener from './Fourteener'
-import Fourteeners from './Fourteeners'
+import Fourteener from '../components/Fourteener'
+import Fourteeners from '../components/Fourteeners'
 
 const coloradoBounds = [
     [-109.060062, 36.992426], // [west, south]
@@ -154,7 +154,7 @@ const ColoradoMap = () => {
         <MapGL
             {...viewport}
             fitBounds={coloradoBounds}
-            height="100%"
+            height="100vh"
             mapStyle="mapbox://styles/nicchappell/cke921s5l0bf919t8tuen8b08"
             // onClick={() => setDetails({})}
             onLoad={handleLoad}
@@ -163,7 +163,7 @@ const ColoradoMap = () => {
             transitionDuration={666}
             transitionInterpolator={new LinearInterpolator()}
             transitionEasing={easeCubic}
-            width="100%"
+            width="100vw"
         >
             {renderView()}
         </MapGL>
