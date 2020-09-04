@@ -33,18 +33,49 @@ const initState = {
     pitch: 0 // degrees between 0 and 60
 }
 
-const ColoradoMap = () => {
+const ColoradoMap = (props) => {
+    // destructure props
+    const {
+        fourteener,
+        fourteeners,
+        location,
+        setFourteener,
+        setFourteeners,
+        setLocation,
+        setTarget,
+        target,
+        user
+    } = props
+
     // ref hooks
     const mapRef = useRef(null)
 
     // state hooks
-    const [center, setCenter] = useState([])
-    const [details, setDetails] = useState({})
-    const [fourteener, setFourteener] = useState({})
-    const [fourteeners, setFourteeners] = useState([])
-    const [location, setLocation] = useState({})
-    const [target, setTarget] = useState({})
     const [viewport, setViewport] = useState(initState)
+
+    // update viewport when fourteener changes
+    useEffect(() => {
+        isEmpty(fourteener)
+            ? setViewport({ ...viewport, zoom: 6 })
+            : setViewport({ ...viewport, zoom: 12 })
+    }, [fourteener])
+
+    // update viewport when target changes
+    useEffect(() => {
+        if (!isEmpty(target)) {
+            setViewport({
+                ...viewport,
+                latitude: target.latitude,
+                longitude: target.longitude,
+            })
+        }
+    }, [target])
+
+    const handleClick = () => {
+        if (isEmpty(fourteener)) {
+            setTarget({})
+        }
+    }
 
     const handleGeolocate = ({ coords }) => {
         // destructore coords
@@ -98,57 +129,20 @@ const ColoradoMap = () => {
         if (isEmpty(fourteener)) {
             return (
                 <Fourteeners
-                    target={target}
                     fourteeners={fourteeners}
                     handleGeolocate={handleGeolocate}
                     setTarget={setTarget}
-                    setFourteener={setFourteener}
                 />
             )
         } else {
             return (
                 <Fourteener
                     fourteener={fourteener}
+                    setFourteener={setFourteener}
                 />
             )
         }
     }
-
-    // const renderPopup = () => {
-    //     if (!isEmpty(popupInfo)) {
-    //         return (
-    //             <Popup
-    //                 tipSize={5}
-    //                 anchor="top"
-    //                 longitude={popupInfo.longitude}
-    //                 latitude={popupInfo.latitude}
-    //                 closeButton={false}
-    //                 closeOnClick={false}
-    //                 onClose={resetPopup}
-    //             >
-    //                 <PopupInfo info={popupInfo} />
-    //             </Popup>
-    //         )
-    //     } else {
-    //         return null
-    //     }
-    // }
-
-    // const resetPopup = () => setPopupInfo({})
-
-    // update map when fourteeners changes
-    useEffect(() => {
-        // // get map and fit bounds
-        // const map = mapRef.current.getMap()
-        // // console.log(map)
-        // map.fitBounds(coloradoBounds)
-        // // console.log(map.getZoom())
-
-        // // setViewport({
-        // //     ...viewport,
-        // //     zoom: map.getZoom()
-        // // })
-    }, [fourteeners])
 
     return (
         <MapGL
@@ -156,7 +150,7 @@ const ColoradoMap = () => {
             fitBounds={coloradoBounds}
             height="100vh"
             mapStyle="mapbox://styles/nicchappell/cke921s5l0bf919t8tuen8b08"
-            // onClick={() => setDetails({})}
+            onClick={handleClick}
             onLoad={handleLoad}
             onViewportChange={handleViewportChange}
             ref={mapRef}

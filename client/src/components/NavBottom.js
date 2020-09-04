@@ -5,89 +5,113 @@ import {
     faAngleDown,
     faAngleUp
 } from '@fortawesome/free-solid-svg-icons'
+import isEmpty from 'lodash.isempty'
+
+// images
+import marker from '../img/marker.svg'
 
 const NavBottom = (props) => {
-    // // destructure props
-    // const {
-    //     details: fourteener,
-    //     setFourteener,
-    //     setShowDetails,
-    //     showDetails
-    // } = props
+    // destructure props
+    const {
+        setFourteener,
+        target: fourteener
+    } = props
 
-    // // destructure fourteener
-    // const {
-    //     mountainPeak,
-    //     mountainRange,
-    //     elevationFeet,
-    //     standardRoute,
-    //     distanceMiles,
-    //     elevationGainFeet,
-    //     difficulty,
-    //     photo,
-    //     slug
-    // } = fourteener
+    // destructure fourteener
+    const {
+        mountainPeak,
+        mountainRange,
+        elevationFeet,
+        standardRoute,
+        distanceMiles,
+        elevationGainFeet,
+        difficulty,
+        photo,
+        slug
+    } = fourteener
 
     // state hooks
     const [display, setDisplay] = useState(false)
-    const [styles, setStyles] = useState({ bottom: '-190px' })
+    const [buttonStyles, setButtonStyles] = useState({ right: '-5px' })
+    const [containerStyles, setContainerStyles] = useState({ bottom: '-285px' })
 
+    // update state when display changes
     useEffect(() => {
-        display
-            ? setStyles({ bottom: '0' })
-            : setStyles({ bottom: '-190px' })
-    }, [display])
+        if (!isEmpty(fourteener) && display) {
+            setButtonStyles({ right: '5px' })
+            setContainerStyles({ bottom: '0' })
+        } else {
+            setButtonStyles({ right: '-42px' })
+            setContainerStyles({ bottom: '-285px' })
+        }
+    }, [display, fourteener])
 
-    const handleClick = () => setDisplay(!display)
+    // update state when fourteener changes
+    useEffect(() => {
+        isEmpty(fourteener)
+            ? setDisplay(false)
+            : setDisplay(true)
+    }, [fourteener])
+
+    const handleButtonClick = () => setFourteener(fourteener)
+    
+    const handleControlClick = () => setDisplay(!display)
+    
+    const renderContent = () => {
+        if (!isEmpty(fourteener)) {
+            return (
+                <div className="fourteener">
+                    <div className="photo" style={{ backgroundImage: `url(${photo})` }}></div>
+                    <div className="details">
+                        <div className="mountain-details">
+                            <span>
+                                <span className="mountain-peak">{mountainPeak}</span>
+                                <span className="elevation">{elevationFeet} ft</span>
+                            </span>
+                            <span className="mountain-range">{mountainRange}</span>
+                        </div>
+                        <div className="route-details">
+                            <span>
+                                <span className="key">Standard Route:</span>
+                                <span className="value standard-route">{standardRoute}</span>
+                            </span>
+                            <span>
+                                <span className="key">Difficulty:</span>
+                                <span className="value difficulty">{difficulty}</span>
+                            </span>
+                            <span>
+                                <span className="key">Elevation Gain:</span>
+                                <span className="value elevation-gain">{elevationGainFeet} ft</span>
+                            </span>
+                            <span>
+                                <span className="key">Distance:</span>
+                                <span className="value distance">{distanceMiles} mi</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            )
+        }
+    }
 
     return (
-        <div className="navigation-bottom" style={{ ...styles }}>
+        <div className="navigation-bottom" style={{ ...containerStyles }}>
             <div
                 className="control"
-                onClick={handleClick}
+                disabled={!isEmpty(fourteener)}
+                onClick={handleControlClick}
             >
-                <FontAwesomeIcon icon={display ? faAngleDown : faAngleUp} />
+                <FontAwesomeIcon icon={display && !isEmpty(fourteener) ? faAngleDown : faAngleUp} />
             </div>
-            <div className="fourteener">
-                asdf
-                {/* <div className="photo" style={{ backgroundImage: `url(${photo})` }}></div>
-                <table className="striped">
-                    <tbody>
-                        <tr>
-                            <td>Mountain Peak</td>
-                            <td>{mountainPeak}</td>
-                        </tr>
-                        <tr>
-                            <td>Mountain Range</td>
-                            <td>{mountainRange}</td>
-                        </tr>
-                        <tr>
-                            <td>Elevation</td>
-                            <td>{elevationFeet} feet</td>
-                        </tr>
-                        <tr>
-                            <td>Standard Route</td>
-                            <td>{standardRoute}</td>
-                        </tr>
-                        <tr>
-                            <td>Distance</td>
-                            <td>{distanceMiles} miles</td>
-                        </tr>
-                        <tr>
-                            <td>Elevation Gain</td>
-                            <td>{elevationGainFeet} feet</td>
-                        </tr>
-                        <tr>
-                            <td>Difficulty</td>
-                            <td>{difficulty}</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <button className="btn">
-                    Check-in
-                <i className="material-icons right">pin_drop</i>
-                </button> */}
+            <div className="check-in" style={{ ...buttonStyles }}>
+                <button
+                    className="btn-floating btn"
+                    onClick={handleButtonClick}
+                >
+                    <img src={marker} alt="Check-in" />
+                </button>
             </div>
+            {renderContent()}
         </div>
     )
 }

@@ -9,8 +9,8 @@ c0.6,0,1.2-0.3,1.5-0.8l4.9-7.7c0.6-1.1,1.1-2.5,1.1-4C15,3.4,11.7,0,7.5,0C7.5,0,7
 // marker size
 const SIZE = 20
 
-// use pure component for best performance
-class Markers extends React.PureComponent {
+// pure component for best performance
+class Markers extends PureComponent {
     render() {
         // destructure props
         const {

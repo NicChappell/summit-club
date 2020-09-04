@@ -14,12 +14,12 @@ const NavBottom = (props) => {
 
     // state hooks
     const [display, setDisplay] = useState(false)
-    const [styles, setStyles] = useState({ top: '-90px' })
+    const [styles, setStyles] = useState({ top: '-100px' })
 
     useEffect(() => {
         display
             ? setStyles({ top: '0' })
-            : setStyles({ top: '-90px' })
+            : setStyles({ top: '-100px' })
     }, [display])
 
     const handleClick = () => setDisplay(!display)
