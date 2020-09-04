@@ -7,12 +7,13 @@ import React, {
 import MapGL, {
     LinearInterpolator
 } from 'react-map-gl'
+import { easeCubic } from 'd3-ease'
 import axios from 'axios'
 import isEmpty from 'lodash.isempty'
 
 // components
-import Fourteener from '../components/Fourteener'
-import Fourteeners from '../components/Fourteeners'
+import Fourteener from './Fourteener'
+import Fourteeners from './Fourteeners'
 
 const coloradoBounds = [
     [-109.060062, 36.992426], // [west, south]
@@ -27,7 +28,7 @@ const coloradoCenter = {
 const initState = {
     latitude: coloradoCenter.latitude,
     longitude: coloradoCenter.longitude,
-    zoom: 5, // between 0 and 22
+    zoom: 6, // between 0 and 22
     bearing: 0, // degrees between 0 and 360
     pitch: 0 // degrees between 0 and 60
 }
@@ -37,14 +38,23 @@ const ColoradoMap = () => {
     const mapRef = useRef(null)
 
     // state hooks
+    const [center, setCenter] = useState([])
+    const [details, setDetails] = useState({})
     const [fourteener, setFourteener] = useState({})
     const [fourteeners, setFourteeners] = useState([])
-    // const [popupInfo, setPopupInfo] = useState({})
+    const [location, setLocation] = useState({})
+    const [target, setTarget] = useState({})
     const [viewport, setViewport] = useState(initState)
 
-    // const handleMarkerClick = fourteener => {
-    //     setPopupInfo(fourteener)
-    // }
+    const handleGeolocate = ({ coords }) => {
+        // destructore coords
+        const {
+            latitude,
+            longitude
+        } = coords
+
+        setLocation({ latitude, longitude })
+    }
 
     const handleLoad = () => {
         // fetch fourteeners and update state
@@ -88,7 +98,10 @@ const ColoradoMap = () => {
         if (isEmpty(fourteener)) {
             return (
                 <Fourteeners
+                    target={target}
                     fourteeners={fourteeners}
+                    handleGeolocate={handleGeolocate}
+                    setTarget={setTarget}
                     setFourteener={setFourteener}
                 />
             )
@@ -130,7 +143,7 @@ const ColoradoMap = () => {
         // // console.log(map)
         // map.fitBounds(coloradoBounds)
         // // console.log(map.getZoom())
-        
+
         // // setViewport({
         // //     ...viewport,
         // //     zoom: map.getZoom()
@@ -141,15 +154,16 @@ const ColoradoMap = () => {
         <MapGL
             {...viewport}
             fitBounds={coloradoBounds}
-            height='100vh'
+            height="100%"
             mapStyle="mapbox://styles/nicchappell/cke921s5l0bf919t8tuen8b08"
-            // onClick={resetPopup}
+            // onClick={() => setDetails({})}
             onLoad={handleLoad}
             onViewportChange={handleViewportChange}
             ref={mapRef}
             transitionDuration={666}
             transitionInterpolator={new LinearInterpolator()}
-            width='100vw'
+            transitionEasing={easeCubic}
+            width="100%"
         >
             {renderView()}
         </MapGL>

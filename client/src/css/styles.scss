@@ -1,99 +1,158 @@
-// .mapboxgl-marker {
-//     // background-image: url("../img/marker.svg");
-//     // background-size: cover;
-//     // width: 30px;
-//     // height: 40px;
-//     // cursor: pointer;
-//     img {
-//         width: 30px;
-//         height: 40px;
-//     }
-//     span {
-//         background-color: #6a4025;
-//         border: 2px solid #ffffff;
-//         border-radius: 2px;
-//         color: #ffffff;
-//         font-size: 16px;
-//         padding: 4px 8px;
-//     }
-// }
+$navigation-height: 56px;
 
-.mapboxgl-ctrl-bottom-right {
-    display: none !important;
-}
-
-.details {
-    background-color: #6a4025;
-    margin-top: 1.25rem;
-    &:focus,
-    &:hover {
-        background-color: #6a4025;
-    }
-}
-
-.check-in {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    button {
-        background-color: #6a4025;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        color: #ffffff;
-        &:focus,
-        &:hover {
-            background-color: #6a4025;
-            color: #ffffff;
-        }
-        i {
-            color: #ffffff;
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    .navigation {
+        .left,
+        .right {
+            height: $navigation-height;
         }
     }
-}
-
-.reset-viewport {
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-    button {
-        background-color: #ffffff;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        color: #6a4025;
-        &:focus,
-        &:hover {
-            background-color: #ffffff;
-            color: #6a4025;
-        }
-        i {
-            color: #6a4025;
-        }
-    }
-}
-
-.geolacte-control {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 10px;
-}
-
-.navigation-control {
-    position: absolute;
-    top: 36px;
-    left: 0;
-    padding: 10px;
-}
-
-.popup-info {
-    img {
-        height: auto;
-        max-width: 480px;
-        width: 100%;
-    }
-    table {
-        td {
-            &:first-child {
-                font-weight: 700;
+    .router {
+        flex: 1 0 auto;
+        .home {
+            .map {
+                height: calc(100vh - #{$navigation-height});
             }
+            .fourteener {
+                .check-in {
+                    position: absolute;
+                    top: 5px;
+                    right: 5px;
+                    button {
+                        background-color: #6a4025;
+                        border: 1px solid rgba(0, 0, 0, 0.1);
+                        color: #ffffff;
+                        &:focus,
+                        &:hover {
+                            background-color: #6a4025;
+                            color: #ffffff;
+                        }
+                        i {
+                            color: #ffffff;
+                        }
+                    }
+                }
+                .reset-viewport {
+                    position: absolute;
+                    bottom: 5px;
+                    right: 5px;
+                    button {
+                        background-color: #ffffff;
+                        border: 1px solid rgba(0, 0, 0, 0.1);
+                        color: #6a4025;
+                        &:focus,
+                        &:hover {
+                            background-color: #ffffff;
+                            color: #6a4025;
+                        }
+                        i {
+                            color: #6a4025;
+                        }
+                    }
+                }
+            }
+            .fourteeners {
+                .chip {
+                    background-color: #6a4025;
+                    color: #ffffff;
+                    position: absolute;
+                    top: 5px;
+                    left: 5px;
+                    z-index: 1;
+                    span {
+                        padding-right: 8px;
+                    }
+                    i {
+                        cursor: pointer;
+                        float: right;
+                        font-size: 16px;
+                        line-height: 32px;
+                        color: #ffffff;
+                    }
+                }
+                .fullscreen-control {
+                    position: absolute;
+                    top: 36px;
+                    right: 0;
+                    padding: 10px;
+                }
+                .geolacte-control {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    padding: 10px;
+                }
+                .navigation-control {
+                    position: absolute;
+                    top: 72px;
+                    right: 0;
+                    padding: 10px;
+                }
+                .details {
+                    background-color: #ffffff;
+                    height: 100%;
+                    left: 0;
+                    max-width: 480px;
+                    overflow-x: scroll;
+                    overflow-y: scroll;
+                    position: absolute;
+                    top: 0;
+                    transition: 0.375s;
+                    z-index: 1;
+                    button {
+                        background-color: #6a4025;
+                        color: #ffffff;
+                        &:focus,
+                        &:hover {
+                            background-color: #6a4025;
+                            color: #ffffff;
+                        }
+                        i {
+                            color: #ffffff;
+                        }
+                    }
+                    .close {
+                        position: absolute;
+                        top: 5px;
+                        right: 5px;
+                    }
+                    .fourteener {
+                        padding: 10px;
+                        .photo {
+                            background-color: #eeeeee;
+                            height: 120px;
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: cover;
+                            width: 100%;
+                        }
+                        table {
+                            overflow: scroll;
+                            td {
+                                white-space: nowrap;
+                                &:first-child {
+                                    font-weight: 700;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// materialize overrides
+.container {
+    .row {
+        margin: 0;
+        padding: 0;
+        .col {
+            margin: 0;
+            padding: 0;
         }
     }
 }

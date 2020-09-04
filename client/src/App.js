@@ -1,41 +1,34 @@
 // dependencies
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import {
     BrowserRouter as Router,
     Switch,
     Route
 } from 'react-router-dom'
-import axios from 'axios'
 
 // routes
-import ColoradoMap from './routes/ColoradoMap'
-import FourteenerMap from './routes/FourteenerMap'
+import Home from './routes/Home'
+
+// components
+import Navigation from './components/Navigation'
 
 // styles
 import 'mapbox-gl/dist/mapbox-gl.css'
 import './css/styles.css'
 
 function App() {
-    // // state hook variables
-    // const [user, setFourteeners] = useState({})
-
-    // // fetch data and update state when component mounts
-    // useEffect(() => {
-    //     // get fourteeners
-    //     axios.get(`/api/v1/fourteeners`)
-    //         .then(res => setFourteeners(res.data))
-    //         .catch(err => console.log(err))
-    // }, [])
-
     return (
-        <Router>
-            <div>
-                <Switch>
-                    <Route path="/" component={ColoradoMap} />
-                </Switch>
-            </div>
-        </Router>
-    );
+        <div className="app">
+            <Navigation />
+            <Router>
+                <div className="router">
+                    <Switch>
+                        <Route path="/" component={Home} />
+                    </Switch>
+                </div>
+            </Router>
+        </div>
+    )
 }
 
-export default App;
+export default App

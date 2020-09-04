@@ -15,8 +15,8 @@ import axios from 'axios'
 import isEmpty from 'lodash.isempty'
 
 // components
-import CheckIn from '../components/CheckIn'
-import ResetViewport from '../components/ResetViewport'
+import CheckIn from './CheckIn'
+import ResetViewport from './ResetViewport'
 
 // utilities
 import { calcDist } from '../utils'

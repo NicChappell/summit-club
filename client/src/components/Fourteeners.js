@@ -1,37 +1,50 @@
 // dependencies
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import {
+    FullscreenControl,
     GeolocateControl,
     NavigationControl
 } from 'react-map-gl'
 import isEmpty from 'lodash.isempty'
 
 // components
-import Markers from '../components/Markers'
+import Chip from './Chip'
+import Details from './Details'
+import Markers from './Markers'
 
 const Fourteeners = props => {
+    // destructure props
+    const {
+        details,
+        fourteeners,
+        handleGeolocate,
+        handleMarkerClick,
+        setDetails,
+        setFourteener
+    } = props
+
     // state hooks
-    const [thing, setThing] = useState('')
-    const [location, setLocation] = useState({})
-
-    // update state after component mounts
-    useEffect(() => {
-        setThing('hello world')
-    }, [])
-
-    const handleGeolocate = ({ coords }) => {
-        // destructore coords
-        const {
-            latitude,
-            longitude
-        } = coords
-
-        setLocation({ latitude, longitude })
-    }
+    const [showDetails, setShowDetails] = useState(false)
 
     return (
         <div className="fourteeners">
-            <Markers {...props} />
+            <Chip
+                details={details}
+                setShowDetails={setShowDetails}
+                showDetails={showDetails}
+            />
+
+            <Details
+                details={details}
+                setFourteener={setFourteener}
+                setShowDetails={setShowDetails}
+                showDetails={showDetails}
+            />
+
+            <Markers
+                fourteeners={fourteeners}
+                setTarget={setTarget}
+            />
 
             <div className="geolacte-control">
                 <GeolocateControl
@@ -40,6 +53,10 @@ const Fourteeners = props => {
                     positionOptions={{ enableHighAccuracy: true }}
                     trackUserLocation={true}
                 />
+            </div>
+
+            <div className="fullscreen-control">
+                <FullscreenControl />
             </div>
 
             <div className="navigation-control">
