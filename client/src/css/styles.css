@@ -83,6 +83,34 @@
   right: 0;
   padding: 10px;
 }
+.app .router .home .fourteeners .navigation-bottom {
+  background-color: #ffffff;
+  border-top: 10px solid #6a4025;
+  height: 200px;
+  left: 0;
+  position: fixed;
+  transition: all 0.333s ease-out;
+  width: 100%;
+  z-index: 1;
+}
+.app .router .home .fourteeners .navigation-bottom .control {
+  align-items: center;
+  background-color: #6a4025;
+  border-radius: 2px 2px 0 0;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  font-size: 18px;
+  height: 28px;
+  justify-content: center;
+  left: calc(50% - (56px / 2));
+  position: absolute;
+  top: calc(-28px - 10px);
+  width: 56px;
+}
+.app .router .home .fourteeners .navigation-bottom .fourteener {
+  position: relative;
+}
 .app .router .home .fourteeners .details {
   background-color: #ffffff;
   height: 100%;

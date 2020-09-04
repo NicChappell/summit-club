@@ -1,7 +1,7 @@
 // dependencies
 import React from 'react'
 
-const NavTop = () => {
+const NavSide = () => {
     return (
         <div>
             
@@ -9,4 +9,4 @@ const NavTop = () => {
     )
 }
 
-export default NavTop
+export default NavSide

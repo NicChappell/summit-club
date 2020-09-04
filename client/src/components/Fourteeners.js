@@ -11,6 +11,7 @@ import isEmpty from 'lodash.isempty'
 import Chip from './Chip'
 import Details from './Details'
 import Markers from './Markers'
+import NavBottom from './NavBottom'
 
 const Fourteeners = props => {
     // destructure props
@@ -18,8 +19,7 @@ const Fourteeners = props => {
         details,
         fourteeners,
         handleGeolocate,
-        handleMarkerClick,
-        setDetails,
+        setTarget,
         setFourteener
     } = props
 
@@ -34,17 +34,19 @@ const Fourteeners = props => {
                 showDetails={showDetails}
             />
 
-            <Details
+            {/* <Details
                 details={details}
                 setFourteener={setFourteener}
                 setShowDetails={setShowDetails}
                 showDetails={showDetails}
-            />
+            /> */}
 
             <Markers
                 fourteeners={fourteeners}
                 setTarget={setTarget}
             />
+
+            <NavBottom />
 
             <div className="geolacte-control">
                 <GeolocateControl

@@ -1,3 +1,7 @@
+$nav-border-width: 10px;
+$nav-conrol-height: 28px;
+$nav-conrol-width: 56px;
+
 $navigation-height: 56px;
 
 .app {
@@ -90,6 +94,38 @@ $navigation-height: 56px;
                     top: 72px;
                     right: 0;
                     padding: 10px;
+                }
+                .navigation-bottom {
+                    background-color: #ffffff;
+                    border-top: $nav-border-width solid #6a4025;
+                    height: 200px;
+                    left: 0;
+                    position: fixed;
+                    transition: all 0.333s ease-out;
+                    width: 100%;
+                    z-index: 1;
+                    &.closed {
+                    }
+                    &.open {
+                    }
+                    .control {
+                        align-items: center;
+                        background-color: #6a4025;
+                        border-radius: 2px 2px 0 0;
+                        color: #ffffff;
+                        cursor: pointer;
+                        display: flex;
+                        font-size: 18px;
+                        height: $nav-conrol-height;
+                        justify-content: center;
+                        left: calc(50% - (#{$nav-conrol-width} / 2));
+                        position: absolute;
+                        top: calc(-#{$nav-conrol-height} - #{$nav-border-width});
+                        width: $nav-conrol-width;
+                    }
+                    .fourteener {
+                        position: relative;
+                    }
                 }
                 .details {
                     background-color: #ffffff;
