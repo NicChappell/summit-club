@@ -19,6 +19,8 @@ import './css/styles.css'
 
 function App() {
     // state hooks
+    const [distance, setDistance] = useState(Infinity)
+    console.log(distance)
     const [fourteener, setFourteener] = useState({})
     const [fourteeners, setFourteeners] = useState([])
     const [location, setLocation] = useState({})
@@ -27,7 +29,11 @@ function App() {
 
     return (
         <div className="app">
-            <NavTop />
+            <NavTop
+                fourteener={fourteener}
+                location={location}
+                setFourteener={setFourteener}
+            />
             <Router>
                 <div className="router">
                     <Switch>
@@ -36,6 +42,7 @@ function App() {
                                 fourteener={fourteener}
                                 fourteeners={fourteeners}
                                 location={location}
+                                setDistance={setDistance}
                                 setFourteener={setFourteener}
                                 setFourteeners={setFourteeners}
                                 setLocation={setLocation}
@@ -49,6 +56,7 @@ function App() {
             </Router>
             <NavBottom
                 setFourteener={setFourteener}
+                setTarget={setTarget}
                 target={target}
             />
         </div>

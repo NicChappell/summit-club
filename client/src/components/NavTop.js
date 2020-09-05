@@ -1,42 +1,74 @@
 // dependencies
-import React, { useEffect, useState } from 'react'
+import React, {
+    useEffect,
+    useState
+} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     faAngleDown,
-    faAngleUp
+    faAngleUp,
+    faMapMarker,
+    faUndo
 } from '@fortawesome/free-solid-svg-icons'
+import isEmpty from 'lodash.isempty'
 
-const NavBottom = (props) => {
+const NavTop = (props) => {
     // destructure props
     const {
-        mrah
+        fourteener,
+        location,
+        setFourteener
     } = props
 
     // state hooks
     const [display, setDisplay] = useState(false)
-    const [styles, setStyles] = useState({ top: '-100px' })
+    const [buttonStyles, setButtonStyles] = useState({ left: '-52px' })
+    const [containerStyles, setContainerStyles] = useState({ top: '-100px' })
 
     useEffect(() => {
         display
-            ? setStyles({ top: '0' })
-            : setStyles({ top: '-100px' })
+            ? setContainerStyles({ top: '0' })
+            : setContainerStyles({ top: '-100px' })
     }, [display])
 
-    const handleClick = () => setDisplay(!display)
+    // update state when fourteener changes
+    useEffect(() => {
+        if (!isEmpty(fourteener)) {
+            setButtonStyles({ left: '0' })
+        } else {
+            setButtonStyles({ left: '-52px' })
+        }
+    }, [fourteener])
+
+    const handleControlClick = () => setDisplay(!display)
 
     return (
-        <div className="navigation-top" style={{ ...styles }}>
+        <div className="nav-top" style={{ ...containerStyles }}>
+            <div className="nav-links" style={{ ...buttonStyles }}>
+                <button
+                    className="btn-floating btn z-depth-0"
+                    onClick={() => console.log('check-in')}
+                >
+                    <FontAwesomeIcon icon={faMapMarker} />
+                </button>
+                <button
+                    className="btn-floating btn z-depth-0"
+                    onClick={() => setFourteener({})}
+                >
+                    <FontAwesomeIcon icon={faUndo} />
+                </button>
+            </div>
             <div
                 className="control"
-                onClick={handleClick}
+                onClick={handleControlClick}
             >
                 <FontAwesomeIcon icon={display ? faAngleUp : faAngleDown} />
             </div>
-            <div className="mrah">
-                {mrah}
+            <div>
+                asdf
             </div>
         </div>
     )
 }
 
-export default NavBottom
+export default NavTop

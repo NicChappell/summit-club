@@ -1,19 +1,22 @@
-$check-in-height: 42px;
-$check-in-width: 42px;
+$icon-button-height: 42px;
+$icon-button-width: 42px;
+
+$text-button-height: 42px;
+$text-button-width: 115px;
 
 $nav-border-width: 7px;
 $nav-conrol-height: 28px;
 $nav-conrol-width: 56px;
 
-$navigation-bottom-height: 285px;
-$navigation-top-height: 100px;
+$nav-bottom-height: 285px;
+$nav-top-height: 100px;
 
 .app {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    .navigation-bottom,
-    .navigation-top {
+    .nav-bottom,
+    .nav-top {
         background-color: #ffffff;
         left: 0;
         position: fixed;
@@ -33,36 +36,35 @@ $navigation-top-height: 100px;
             position: absolute;
             width: $nav-conrol-width;
         }
-    }
-    .navigation-bottom {
-        border-top: $nav-border-width solid #6a4025;
-        height: $navigation-bottom-height;
-        .check-in {
-            bottom: calc(#{$navigation-bottom-height} + #{$nav-border-width} + 5px);
+        .nav-links {
+            align-items: flex-end;
             cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            margin: 5px;
             position: absolute;
             transition: all 0.333s ease-out;
             button {
                 align-items: center;
-                background-color: #ffffff;
-                border: 1px solid rgba(0, 0, 0, 0.1);
-                color: #6a4025;
+                background-color: #6a4025;
+                color: #ffffff;
                 display: flex;
-                height: $check-in-height;
+                height: $icon-button-height;
+                margin: 5px;
                 justify-content: center;
-                width: $check-in-width;
+                width: $icon-button-width;
                 &:focus,
                 &:hover {
-                    background-color: #ffffff;
-                    color: #6a4025;
-                }
-                img {
-                    height: auto;
-                    max-height: 62.5%;
-                    width: 100%;
+                    background-color: #6a4025;
+                    color: #ffffff;
                 }
             }
         }
+    }
+    .nav-bottom {
+        border-top: $nav-border-width solid #6a4025;
+        height: $nav-bottom-height;
         .control {
             border-radius: 2px 2px 0 0;
             top: calc(-#{$nav-conrol-height} - #{$nav-border-width});
@@ -136,6 +138,12 @@ $navigation-top-height: 100px;
                 width: 100%;
             }
         }
+        .nav-links {
+            bottom: calc(#{$nav-bottom-height});
+            button {
+                width: $text-button-width;
+            }
+        }
         .placeholder {
             align-items: center;
             display: flex;
@@ -149,49 +157,37 @@ $navigation-top-height: 100px;
             }
         }
     }
-    .navigation-top {
+    .nav-top {
         border-bottom: $nav-border-width solid #6a4025;
-        height: $navigation-top-height;
+        height: $nav-top-height;
         .control {
             border-radius: 0 0 2px 2px;
             bottom: calc(-#{$nav-conrol-height} - #{$nav-border-width});
         }
-        .mrah {
+        .nav-links {
+            top: calc(#{$nav-top-height});
+            button {
+                width: $icon-button-width;
+            }
         }
     }
     .router {
         flex: 1 0 auto;
-        .fourteener {
-            .reset-viewport {
-                position: absolute;
-                top: 5px;
-                right: 5px;
-                button {
-                    background-color: #ffffff;
-                    border: 1px solid rgba(0, 0, 0, 0.1);
-                    color: #6a4025;
-                }
+        .controls {
+            align-items: flex-end;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            margin: 5px;
+            .fullscreen-control,
+            .geolacte-control,
+            .navigation-control {
+                margin: 5px;
             }
         }
+        .fourteener {
+        }
         .fourteeners {
-            .fullscreen-control {
-                position: absolute;
-                top: 36px;
-                right: 0;
-                padding: 10px;
-            }
-            .geolacte-control {
-                position: absolute;
-                top: 0;
-                right: 0;
-                padding: 10px;
-            }
-            .navigation-control {
-                position: absolute;
-                top: 72px;
-                right: 0;
-                padding: 10px;
-            }
         }
     }
 }

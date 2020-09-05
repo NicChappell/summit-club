@@ -3,8 +3,8 @@
   flex-direction: column;
   height: 100vh;
 }
-.app .navigation-bottom,
-.app .navigation-top {
+.app .nav-bottom,
+.app .nav-top {
   background-color: #ffffff;
   left: 0;
   position: fixed;
@@ -12,8 +12,8 @@
   width: 100%;
   z-index: 1;
 }
-.app .navigation-bottom .control,
-.app .navigation-top .control {
+.app .nav-bottom .control,
+.app .nav-top .control {
   align-items: center;
   background-color: #6a4025;
   color: #ffffff;
@@ -26,52 +26,55 @@
   position: absolute;
   width: 56px;
 }
-.app .navigation-bottom {
-  border-top: 7px solid #6a4025;
-  height: 285px;
-}
-.app .navigation-bottom .check-in {
-  bottom: calc(285px + 7px + 5px);
+.app .nav-bottom .nav-links,
+.app .nav-top .nav-links {
+  align-items: flex-end;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 5px;
   position: absolute;
   transition: all 0.333s ease-out;
 }
-.app .navigation-bottom .check-in button {
+.app .nav-bottom .nav-links button,
+.app .nav-top .nav-links button {
   align-items: center;
-  background-color: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  color: #6a4025;
+  background-color: #6a4025;
+  color: #ffffff;
   display: flex;
   height: 42px;
+  margin: 5px;
   justify-content: center;
   width: 42px;
 }
-.app .navigation-bottom .check-in button:focus, .app .navigation-bottom .check-in button:hover {
-  background-color: #ffffff;
-  color: #6a4025;
+.app .nav-bottom .nav-links button:focus, .app .nav-bottom .nav-links button:hover,
+.app .nav-top .nav-links button:focus,
+.app .nav-top .nav-links button:hover {
+  background-color: #6a4025;
+  color: #ffffff;
 }
-.app .navigation-bottom .check-in button img {
-  height: auto;
-  max-height: 62.5%;
-  width: 100%;
+.app .nav-bottom {
+  border-top: 7px solid #6a4025;
+  height: 285px;
 }
-.app .navigation-bottom .control {
+.app .nav-bottom .control {
   border-radius: 2px 2px 0 0;
   top: calc(-28px - 7px);
 }
-.app .navigation-bottom .fourteener {
+.app .nav-bottom .fourteener {
   height: 100%;
   overflow: scroll;
 }
-.app .navigation-bottom .fourteener .details {
+.app .nav-bottom .fourteener .details {
   align-items: flex-start;
   color: #000000;
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
-.app .navigation-bottom .fourteener .details .mountain-details,
-.app .navigation-bottom .fourteener .details .route-details {
+.app .nav-bottom .fourteener .details .mountain-details,
+.app .nav-bottom .fourteener .details .route-details {
   align-items: left;
   display: flex;
   flex-direction: column;
@@ -79,46 +82,46 @@
   justify-content: flex-start;
   padding: 14px 21px;
 }
-.app .navigation-bottom .fourteener .details .mountain-details {
+.app .nav-bottom .fourteener .details .mountain-details {
   width: 40%;
 }
-.app .navigation-bottom .fourteener .details .mountain-details > span .elevation,
-.app .navigation-bottom .fourteener .details .mountain-details > span .mountain-peak {
+.app .nav-bottom .fourteener .details .mountain-details > span .elevation,
+.app .nav-bottom .fourteener .details .mountain-details > span .mountain-peak {
   display: inline-block;
 }
-.app .navigation-bottom .fourteener .details .mountain-details > span .elevation {
+.app .nav-bottom .fourteener .details .mountain-details > span .elevation {
   color: rgba(0, 0, 0, 0.875);
 }
-.app .navigation-bottom .fourteener .details .mountain-details > span .mountain-peak {
+.app .nav-bottom .fourteener .details .mountain-details > span .mountain-peak {
   font-weight: 600;
   margin-right: 7px;
 }
-.app .navigation-bottom .fourteener .details .mountain-details .mountain-range {
+.app .nav-bottom .fourteener .details .mountain-details .mountain-range {
   color: rgba(0, 0, 0, 0.75);
   font-size: 0.875rem;
 }
-.app .navigation-bottom .fourteener .details .route-details {
+.app .nav-bottom .fourteener .details .route-details {
   color: rgba(0, 0, 0, 0.75);
   font-size: 0.875rem;
   width: 60%;
 }
-.app .navigation-bottom .fourteener .details .route-details > span {
+.app .nav-bottom .fourteener .details .route-details > span {
   display: block;
 }
-.app .navigation-bottom .fourteener .details .route-details > span .key,
-.app .navigation-bottom .fourteener .details .route-details > span .value {
+.app .nav-bottom .fourteener .details .route-details > span .key,
+.app .nav-bottom .fourteener .details .route-details > span .value {
   display: inline-block;
 }
-.app .navigation-bottom .fourteener .details .route-details > span .key {
+.app .nav-bottom .fourteener .details .route-details > span .key {
   color: rgba(0, 0, 0, 0.875);
   font-weight: 600;
 }
-.app .navigation-bottom .fourteener .details .route-details > span .value {
+.app .nav-bottom .fourteener .details .route-details > span .value {
   color: rgba(0, 0, 0, 0.75);
   margin-left: 7px;
   white-space: nowrap;
 }
-.app .navigation-bottom .fourteener .photo {
+.app .nav-bottom .fourteener .photo {
   background-color: #eeeeee;
   background-position: center;
   background-repeat: no-repeat;
@@ -126,7 +129,13 @@
   height: 150px;
   width: 100%;
 }
-.app .navigation-bottom .placeholder {
+.app .nav-bottom .nav-links {
+  bottom: calc(285px);
+}
+.app .nav-bottom .nav-links button {
+  width: 115px;
+}
+.app .nav-bottom .placeholder {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -134,48 +143,38 @@
   justify-content: center;
   padding: 14px 21px;
 }
-.app .navigation-bottom .placeholder img {
+.app .nav-bottom .placeholder img {
   height: auto;
   width: 100%;
 }
-.app .navigation-top {
+.app .nav-top {
   border-bottom: 7px solid #6a4025;
   height: 100px;
 }
-.app .navigation-top .control {
+.app .nav-top .control {
   border-radius: 0 0 2px 2px;
   bottom: calc(-28px - 7px);
+}
+.app .nav-top .nav-links {
+  top: calc(100px);
+}
+.app .nav-top .nav-links button {
+  width: 42px;
 }
 .app .router {
   flex: 1 0 auto;
 }
-.app .router .fourteener .reset-viewport {
-  position: absolute;
-  top: 5px;
-  right: 5px;
+.app .router .controls {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 5px;
 }
-.app .router .fourteener .reset-viewport button {
-  background-color: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  color: #6a4025;
-}
-.app .router .fourteeners .fullscreen-control {
-  position: absolute;
-  top: 36px;
-  right: 0;
-  padding: 10px;
-}
-.app .router .fourteeners .geolacte-control {
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 10px;
-}
-.app .router .fourteeners .navigation-control {
-  position: absolute;
-  top: 72px;
-  right: 0;
-  padding: 10px;
+.app .router .controls .fullscreen-control,
+.app .router .controls .geolacte-control,
+.app .router .controls .navigation-control {
+  margin: 5px;
 }
 
 /*# sourceMappingURL=styles.css.map */

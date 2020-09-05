@@ -1,11 +1,13 @@
 // dependencies
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Marker } from 'react-map-gl'
 import isEmpty from 'lodash.isempty'
 
-// components
-import CheckIn from '../components/CheckIn'
-import ResetViewport from '../components/ResetViewport'
+// utilities
+import {
+    calcDist,
+    createCircle
+} from '../utils'
 
 // marker icon
 const ICON = `M7.5,0L7.5,0C3.4,0,0,3.3,0,7.5c0,0,0,0,0,0c0,1.4,0.5,2.8,1.1,4L6,19.2C6.3,19.7,6.9,20,7.5,20
@@ -18,16 +20,57 @@ const Fourteener = props => {
     // destructure props
     const {
         fourteener,
-        setFourteener
+        location,
+        mapRef,
+        setDistance
     } = props
 
-    // state hooks
-    const [thing, setThing] = useState('')
+    // destructure fourteener
+    const {
+        latitude,
+        longitude
+    } = fourteener
 
-    // update state after component mounts
+    // add circle to map when component mounts
     useEffect(() => {
-        setThing('hello world')
+        const map = mapRef.current.getMap()
+
+        map.addSource('polygon', createCircle([longitude, latitude], 0.5))
+
+        map.addLayer({
+            'id': 'polygon',
+            'type': 'fill',
+            'source': 'polygon',
+            'layout': {},
+            'paint': {
+                'fill-color': '#6a4025',
+                'fill-opacity': 0.333
+            }
+        })
+
+        const cleanup = () => {
+            map.removeLayer('polygon')
+            map.removeSource('polygon')
+        }
+
+        return cleanup
     }, [])
+
+    // calculate distance when location changes
+    useEffect(() => {
+        if (!isEmpty(location)) {
+            const a = {
+                latitude: fourteener.latitude,
+                longitude: fourteener.longitude
+            }
+            const b = {
+                latitude: location.latitude,
+                longitude: location.longitude
+            }
+
+            setDistance(calcDist(a, b))
+        }
+    }, [fourteener, location])
 
     return (
         <div className="fourteener">
@@ -44,14 +87,6 @@ const Fourteener = props => {
                     <circle cx="7.5" cy="7" r="2.7" fill="#ffffff" stroke="none" />
                 </svg>
             </Marker>
-
-            <div className="check-in">
-                <CheckIn />
-            </div>
-
-            <div className="reset-viewport">
-                <ResetViewport setFourteener={setFourteener} />
-            </div>
         </div>
     )
 }

@@ -4,14 +4,13 @@ import React, {
     useRef,
     useState
 } from 'react'
-import MapGL, {
-    LinearInterpolator
-} from 'react-map-gl'
+import MapGL, { LinearInterpolator } from 'react-map-gl'
 import { easeCubic } from 'd3-ease'
 import axios from 'axios'
 import isEmpty from 'lodash.isempty'
 
 // components
+import Controls from '../components/Controls'
 import Fourteener from '../components/Fourteener'
 import Fourteeners from '../components/Fourteeners'
 
@@ -39,6 +38,7 @@ const ColoradoMap = (props) => {
         fourteener,
         fourteeners,
         location,
+        setDistance,
         setFourteener,
         setFourteeners,
         setLocation,
@@ -71,11 +71,7 @@ const ColoradoMap = (props) => {
         }
     }, [target])
 
-    const handleClick = () => {
-        if (isEmpty(fourteener)) {
-            setTarget({})
-        }
-    }
+    const handleClick = () => setTarget({})
 
     const handleGeolocate = ({ coords }) => {
         // destructore coords
@@ -138,7 +134,9 @@ const ColoradoMap = (props) => {
             return (
                 <Fourteener
                     fourteener={fourteener}
-                    setFourteener={setFourteener}
+                    location={location}
+                    mapRef={mapRef}
+                    setDistance={setDistance}
                 />
             )
         }
@@ -159,6 +157,7 @@ const ColoradoMap = (props) => {
             transitionEasing={easeCubic}
             width="100vw"
         >
+            <Controls handleGeolocate={handleGeolocate} />
             {renderView()}
         </MapGL>
     )

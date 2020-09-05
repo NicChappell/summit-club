@@ -1,5 +1,8 @@
 // dependencies
-import React, { useEffect, useState } from 'react'
+import React, {
+    useEffect,
+    useState
+} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     faAngleDown,
@@ -7,13 +10,11 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import isEmpty from 'lodash.isempty'
 
-// images
-import marker from '../img/marker.svg'
-
 const NavBottom = (props) => {
     // destructure props
     const {
         setFourteener,
+        setTarget,
         target: fourteener
     } = props
 
@@ -31,32 +32,27 @@ const NavBottom = (props) => {
     } = fourteener
 
     // state hooks
-    const [display, setDisplay] = useState(false)
-    const [buttonStyles, setButtonStyles] = useState({ right: '-5px' })
+    const [buttonStyles, setButtonStyles] = useState({ right: '-125px' })
     const [containerStyles, setContainerStyles] = useState({ bottom: '-285px' })
-
-    // update state when display changes
-    useEffect(() => {
-        if (!isEmpty(fourteener) && display) {
-            setButtonStyles({ right: '5px' })
-            setContainerStyles({ bottom: '0' })
-        } else {
-            setButtonStyles({ right: '-42px' })
-            setContainerStyles({ bottom: '-285px' })
-        }
-    }, [display, fourteener])
 
     // update state when fourteener changes
     useEffect(() => {
-        isEmpty(fourteener)
-            ? setDisplay(false)
-            : setDisplay(true)
+        if (!isEmpty(fourteener)) {
+            setButtonStyles({ right: '0' })
+            setContainerStyles({ bottom: '0' })
+        } else {
+            setButtonStyles({ right: '-125px' })
+            setContainerStyles({ bottom: '-285px' })
+        }
     }, [fourteener])
 
-    const handleButtonClick = () => setFourteener(fourteener)
-    
-    const handleControlClick = () => setDisplay(!display)
-    
+    const handleButtonClick = () => {
+        setFourteener(fourteener)
+        setTarget({})
+    }
+
+    const handleControlClick = () => setTarget({})
+
     const renderContent = () => {
         if (!isEmpty(fourteener)) {
             return (
@@ -66,7 +62,7 @@ const NavBottom = (props) => {
                         <div className="mountain-details">
                             <span>
                                 <span className="mountain-peak">{mountainPeak}</span>
-                                <span className="elevation">{elevationFeet} ft</span>
+                                <span className="elevation">{elevationFeet.toLocaleString()} ft</span>
                             </span>
                             <span className="mountain-range">{mountainRange}</span>
                         </div>
@@ -81,7 +77,7 @@ const NavBottom = (props) => {
                             </span>
                             <span>
                                 <span className="key">Elevation Gain:</span>
-                                <span className="value elevation-gain">{elevationGainFeet} ft</span>
+                                <span className="value elevation-gain">{elevationGainFeet.toLocaleString()} ft</span>
                             </span>
                             <span>
                                 <span className="key">Distance:</span>
@@ -95,21 +91,21 @@ const NavBottom = (props) => {
     }
 
     return (
-        <div className="navigation-bottom" style={{ ...containerStyles }}>
+        <div className="nav-bottom" style={{ ...containerStyles }}>
+            <div className="nav-links" style={{ ...buttonStyles }}>
+                <button
+                    className="btn-small"
+                    onClick={handleButtonClick}
+                >
+                    Check-in
+                </button>
+            </div>
             <div
                 className="control"
                 disabled={!isEmpty(fourteener)}
                 onClick={handleControlClick}
             >
-                <FontAwesomeIcon icon={display && !isEmpty(fourteener) ? faAngleDown : faAngleUp} />
-            </div>
-            <div className="check-in" style={{ ...buttonStyles }}>
-                <button
-                    className="btn-floating btn"
-                    onClick={handleButtonClick}
-                >
-                    <img src={marker} alt="Check-in" />
-                </button>
+                <FontAwesomeIcon icon={!isEmpty(fourteener) ? faAngleDown : faAngleUp} />
             </div>
             {renderContent()}
         </div>
