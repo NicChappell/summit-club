@@ -7,8 +7,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     faAngleDown,
     faAngleUp,
+    faCog,
+    faHome,
     faMapMarker,
-    faUndo
+    faSignInAlt,
+    faUndo,
+    faUser,
+    faUserPlus
 } from '@fortawesome/free-solid-svg-icons'
 import isEmpty from 'lodash.isempty'
 
@@ -23,12 +28,13 @@ const NavTop = (props) => {
     // state hooks
     const [display, setDisplay] = useState(false)
     const [buttonStyles, setButtonStyles] = useState({ left: '-52px' })
-    const [containerStyles, setContainerStyles] = useState({ top: '-100px' })
+    const [containerStyles, setContainerStyles] = useState({ top: '-85px' })
 
+    // update state when display changes
     useEffect(() => {
         display
             ? setContainerStyles({ top: '0' })
-            : setContainerStyles({ top: '-100px' })
+            : setContainerStyles({ top: '-85px' })
     }, [display])
 
     // update state when fourteener changes
@@ -46,16 +52,16 @@ const NavTop = (props) => {
         <div className="nav-top" style={{ ...containerStyles }}>
             <div className="nav-links" style={{ ...buttonStyles }}>
                 <button
-                    className="btn-floating btn z-depth-0"
-                    onClick={() => console.log('check-in')}
-                >
-                    <FontAwesomeIcon icon={faMapMarker} />
-                </button>
-                <button
-                    className="btn-floating btn z-depth-0"
+                    className="btn-floating btn"
                     onClick={() => setFourteener({})}
                 >
                     <FontAwesomeIcon icon={faUndo} />
+                </button>
+                <button
+                    className="btn-floating btn"
+                    onClick={() => console.log('check-in')}
+                >
+                    <FontAwesomeIcon icon={faMapMarker} />
                 </button>
             </div>
             <div
@@ -64,8 +70,27 @@ const NavTop = (props) => {
             >
                 <FontAwesomeIcon icon={display ? faAngleUp : faAngleDown} />
             </div>
-            <div>
-                asdf
+            <div className="menu">
+                <button className="btn-flat btn">
+                    <FontAwesomeIcon icon={faHome} />
+                    <span>Home</span>
+                </button>
+                <button className="btn-flat btn">
+                    <FontAwesomeIcon icon={faCog} />
+                    <span>Settings</span>
+                </button>
+                <button className="btn-flat btn">
+                    <FontAwesomeIcon icon={faUser} />
+                    <span>Profile</span>
+                </button>
+                <button className="btn-flat btn">
+                    <FontAwesomeIcon icon={faSignInAlt} />
+                    <span>Sign-in</span>
+                </button>
+                <button className="btn-flat btn">
+                    <FontAwesomeIcon icon={faUserPlus} />
+                    <span>Sign-up</span>
+                </button>
             </div>
         </div>
     )

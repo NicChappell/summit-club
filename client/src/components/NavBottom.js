@@ -32,26 +32,33 @@ const NavBottom = (props) => {
     } = fourteener
 
     // state hooks
+    const [display, setDisplay] = useState(false)
     const [buttonStyles, setButtonStyles] = useState({ right: '-125px' })
-    const [containerStyles, setContainerStyles] = useState({ bottom: '-285px' })
+    const [containerStyles, setContainerStyles] = useState({ bottom: '-313px' })
 
-    // update state when fourteener changes
+    // update state when display or fourteener changes
     useEffect(() => {
-        if (!isEmpty(fourteener)) {
+        if (!isEmpty(fourteener) && !display) {
+            console.log('condition 1')
             setButtonStyles({ right: '0' })
             setContainerStyles({ bottom: '0' })
-        } else {
+        } else if (!isEmpty(fourteener) && display) {
+            console.log('condition 2')
             setButtonStyles({ right: '-125px' })
             setContainerStyles({ bottom: '-285px' })
+        } else {
+            console.log('condition 3')
+            setButtonStyles({ right: '-125px' })
+            setContainerStyles({ bottom: '-313px' })
         }
-    }, [fourteener])
+    }, [display, fourteener])
 
     const handleButtonClick = () => {
         setFourteener(fourteener)
         setTarget({})
     }
 
-    const handleControlClick = () => setTarget({})
+    const handleControlClick = () => setDisplay(!display)
 
     const renderContent = () => {
         if (!isEmpty(fourteener)) {
@@ -105,7 +112,7 @@ const NavBottom = (props) => {
                 disabled={!isEmpty(fourteener)}
                 onClick={handleControlClick}
             >
-                <FontAwesomeIcon icon={!isEmpty(fourteener) ? faAngleDown : faAngleUp} />
+                <FontAwesomeIcon icon={display ? faAngleUp : faAngleDown} />
             </div>
             {renderContent()}
         </div>
