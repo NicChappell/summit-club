@@ -3,14 +3,16 @@ import React, {
     useEffect,
     useState
 } from 'react'
+import { NavLink } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     faAngleDown,
     faAngleUp,
-    faCog,
+    faFlag,
     faHome,
     faMapMarker,
     faSignInAlt,
+    faSignOutAlt,
     faUndo,
     faUser,
     faUserPlus
@@ -28,13 +30,13 @@ const NavTop = (props) => {
     // state hooks
     const [display, setDisplay] = useState(false)
     const [buttonStyles, setButtonStyles] = useState({ left: '-52px' })
-    const [containerStyles, setContainerStyles] = useState({ top: '-85px' })
+    const [containerStyles, setContainerStyles] = useState({ top: '-70px' })
 
     // update state when display changes
     useEffect(() => {
         display
             ? setContainerStyles({ top: '0' })
-            : setContainerStyles({ top: '-85px' })
+            : setContainerStyles({ top: '-70px' })
     }, [display])
 
     // update state when fourteener changes
@@ -70,27 +72,35 @@ const NavTop = (props) => {
             >
                 <FontAwesomeIcon icon={display ? faAngleUp : faAngleDown} />
             </div>
-            <div className="menu">
-                <button className="btn-flat btn">
-                    <FontAwesomeIcon icon={faHome} />
-                    <span>Home</span>
-                </button>
-                <button className="btn-flat btn">
-                    <FontAwesomeIcon icon={faCog} />
-                    <span>Settings</span>
-                </button>
-                <button className="btn-flat btn">
-                    <FontAwesomeIcon icon={faUser} />
-                    <span>Profile</span>
-                </button>
-                <button className="btn-flat btn">
-                    <FontAwesomeIcon icon={faSignInAlt} />
-                    <span>Sign-in</span>
-                </button>
-                <button className="btn-flat btn">
-                    <FontAwesomeIcon icon={faUserPlus} />
-                    <span>Sign-up</span>
-                </button>
+            <div className="container">
+                <div className="row">
+                    <div className="col s12 content">
+                        <NavLink to="/" className="btn-flat btn">
+                            <FontAwesomeIcon icon={faHome} />
+                            <span>Home</span>
+                        </NavLink>
+                        <NavLink to="/fourteeners" className="btn-flat btn">
+                            <FontAwesomeIcon icon={faFlag} />
+                            <span>Fourteeners</span>
+                        </NavLink>
+                        <NavLink to="/profile" className="btn-flat btn">
+                            <FontAwesomeIcon icon={faUser} />
+                            <span>Profile</span>
+                        </NavLink>
+                        <NavLink to="/sign-in" className="btn-flat btn">
+                            <FontAwesomeIcon icon={faSignInAlt} />
+                            <span>Sign-in</span>
+                        </NavLink>
+                        <button className="btn-flat btn">
+                            <FontAwesomeIcon icon={faSignOutAlt} />
+                            <span>Sign-out</span>
+                        </button>
+                        <NavLink to="/sign-up" className="btn-flat btn">
+                            <FontAwesomeIcon icon={faUserPlus} />
+                            <span>Sign-up</span>
+                        </NavLink>
+                    </div>
+                </div>
             </div>
         </div>
     )

@@ -145,6 +145,7 @@ const ColoradoMap = (props) => {
     return (
         <MapGL
             {...viewport}
+            className="colorado-map"
             fitBounds={coloradoBounds}
             height="100vh"
             mapStyle="mapbox://styles/nicchappell/cke921s5l0bf919t8tuen8b08"
