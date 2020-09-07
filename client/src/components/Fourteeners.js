@@ -15,7 +15,6 @@ class Fourteeners extends PureComponent {
         // destructure props
         const {
             fourteeners,
-            handleGeolocate,
             setTarget
         } = this.props
 

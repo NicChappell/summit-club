@@ -27,8 +27,7 @@ const NavBottom = (props) => {
         distanceMiles,
         elevationGainFeet,
         difficulty,
-        photo,
-        slug
+        photo
     } = fourteener
 
     // state hooks

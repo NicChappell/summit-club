@@ -72,7 +72,7 @@ function App() {
                             exact
                             path="/fourteeners"
                             render={() => (
-                                <Fourteeners />
+                                <Fourteeners fourteeners={fourteeners} />
                             )}
                         />
                         <Route

@@ -1,13 +1,57 @@
 // dependencies
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+    faCheckCircle,
+    faMapMarker
+} from '@fortawesome/free-solid-svg-icons'
 
-const Fourteeners = () => {
+const Fourteeners = (props) => {
+    // destructure props
+    const { fourteeners } = props
+
     return (
         <div className="container fourteeners">
             <div className="row">
-                <div className="col s12">
-                    Fourteeners
-                </div>
+                {fourteeners.map(fourteener => {
+                    // destructure fourteener
+                    const {
+                        mountainPeak,
+                        mountainRange,
+                        elevationFeet,
+                        standardRoute,
+                        distanceMiles,
+                        elevationGainFeet,
+                        difficulty,
+                        photo,
+                        slug
+                    } = fourteener
+
+                    return (
+                        <div className="col s12 m6" key={slug}>
+                            <div className="card">
+                                <div className="card-image">
+                                    <img src={photo} alt={mountainPeak} />
+                                    <span className="card-title">{mountainPeak}</span>
+                                </div>
+                                <div className="card-content">
+                                    <p>{mountainRange}</p>
+                                    <p>{elevationFeet}</p>
+                                    <p>{standardRoute}</p>
+                                    <p>{distanceMiles}</p>
+                                    <p>{elevationGainFeet}</p>
+                                    <p>{difficulty}</p>
+                                    <FontAwesomeIcon icon={faCheckCircle} />
+                                    <FontAwesomeIcon icon={faMapMarker} />
+                                </div>
+                                <div className="card-action">
+                                    <Link to={`/fourteeners/${slug}`}>Details</Link>
+                                </div>
+                            </div>
+                        </div>
+                    )
+                })}
             </div>
         </div>
     )

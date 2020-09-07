@@ -126,7 +126,6 @@ const ColoradoMap = (props) => {
             return (
                 <Fourteeners
                     fourteeners={fourteeners}
-                    handleGeolocate={handleGeolocate}
                     setTarget={setTarget}
                 />
             )
