@@ -13,7 +13,7 @@
   flex-direction: column;
   position: fixed;
   transition: all 0.333s ease-out;
-  max-width: 600px;
+  max-width: 480px;
   width: 100%;
   z-index: 1;
 }
@@ -21,6 +21,7 @@
 .app .nav-top .content {
   background-color: #ffffff;
   width: 100%;
+  overflow: hidden;
 }
 .app .nav-bottom .control,
 .app .nav-top .control {
@@ -42,7 +43,7 @@
   flex-direction: row;
   position: fixed;
   transition: all 0.333s ease-out;
-  max-width: 600px;
+  max-width: 480px;
   width: 100%;
   z-index: -1;
 }
@@ -85,7 +86,7 @@
   display: flex;
   flex-direction: row;
   height: calc(300px - 185px);
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 .app .nav-bottom .content .details .mountain-details,
 .app .nav-bottom .content .details .route-details {
@@ -184,6 +185,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  padding: 0 5px;
 }
 .app .nav-top .content a:focus, .app .nav-top .content a:hover,
 .app .nav-top .content button:focus,

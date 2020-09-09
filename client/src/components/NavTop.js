@@ -71,18 +71,18 @@ const NavTop = (props) => {
                     <FontAwesomeIcon icon={faMap} />
                     <span>Map</span>
                 </NavLink>
-                <NavLink to="/profile" className="btn-flat btn">
+                {/* <NavLink to="/profile" className="btn-flat btn">
                     <FontAwesomeIcon icon={faUser} />
                     <span>Profile</span>
-                </NavLink>
-                <NavLink to="/sign-in" className="btn-flat btn">
-                    <FontAwesomeIcon icon={faSignInAlt} />
-                    <span>Sign-in</span>
                 </NavLink>
                 <button className="btn-flat btn">
                     <FontAwesomeIcon icon={faSignOutAlt} />
                     <span>Sign-out</span>
-                </button>
+                </button> */}
+                <NavLink to="/sign-in" className="btn-flat btn">
+                    <FontAwesomeIcon icon={faSignInAlt} />
+                    <span>Sign-in</span>
+                </NavLink>
                 <NavLink to="/sign-up" className="btn-flat btn">
                     <FontAwesomeIcon icon={faUserPlus} />
                     <span>Sign-up</span>
