@@ -6,7 +6,6 @@ import React, {
 } from 'react'
 import MapGL, { LinearInterpolator } from 'react-map-gl'
 import { easeCubic } from 'd3-ease'
-import axios from 'axios'
 import isEmpty from 'lodash.isempty'
 
 // components
@@ -83,12 +82,7 @@ const ColoradoMap = (props) => {
         setLocation({ latitude, longitude })
     }
 
-    const handleLoad = () => {
-        // fetch fourteeners and update state
-        axios.get('/api/v1/fourteeners')
-            .then(res => setFourteeners(res.data))
-            .catch(err => console.log(err))
-    }
+    const handleLoad = () => console.log('map loaded')
 
     const handleViewportChange = viewport => {
         // destructure viewport

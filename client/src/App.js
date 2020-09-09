@@ -1,10 +1,14 @@
 // dependencies
-import React, { useState } from 'react'
+import React, {
+    useEffect,
+    useState
+} from 'react'
 import {
     BrowserRouter as Router,
     Switch,
     Route
 } from 'react-router-dom'
+import axios from 'axios'
 
 // routes
 import ColoradoMap from './routes/ColoradoMap'
@@ -32,6 +36,14 @@ function App() {
     const [location, setLocation] = useState({})
     const [user, setUser] = useState({})
     const [target, setTarget] = useState({})
+
+    // effect hooks
+    useEffect(() => {
+        // fetch fourteeners and update state
+        axios.get('/api/v1/fourteeners')
+            .then(res => setFourteeners(res.data))
+            .catch(err => console.log(err))
+    }, [])
 
     return (
         <div className="app">

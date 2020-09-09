@@ -32,25 +32,31 @@ const NavBottom = (props) => {
 
     // state hooks
     const [display, setDisplay] = useState(false)
-    const [buttonStyles, setButtonStyles] = useState({ right: '-125px' })
-    const [containerStyles, setContainerStyles] = useState({ bottom: '-313px' })
 
-    // update state when display or fourteener changes
-    useEffect(() => {
-        if (!isEmpty(fourteener) && !display) {
-            console.log('condition 1')
-            setButtonStyles({ right: '0' })
-            setContainerStyles({ bottom: '0' })
-        } else if (!isEmpty(fourteener) && display) {
-            console.log('condition 2')
-            setButtonStyles({ right: '-125px' })
-            setContainerStyles({ bottom: '-285px' })
+    const mapNavStyles = () => {
+        if (!isEmpty(fourteener) && display) {
+            return 'map-nav opened'
         } else {
-            console.log('condition 3')
-            setButtonStyles({ right: '-125px' })
-            setContainerStyles({ bottom: '-313px' })
+            return 'map-nav closed'
         }
-    }, [display, fourteener])
+    }
+
+    const containerStyles = () => {
+        if (!isEmpty(fourteener) && !display) {
+            return 'nav-bottom peaking'
+        } else if (!isEmpty(fourteener) && display) {
+            return 'nav-bottom opened'
+        } else {
+            return 'nav-bottom closed'
+        }
+    }
+
+    // update state when fourteener changes
+    useEffect(() => {
+        if (!isEmpty(fourteener)) {
+            setDisplay(true)
+        }
+    }, [fourteener])
 
     const handleButtonClick = () => {
         setFourteener(fourteener)
@@ -59,50 +65,9 @@ const NavBottom = (props) => {
 
     const handleControlClick = () => setDisplay(!display)
 
-    const renderContent = () => {
-        if (!isEmpty(fourteener)) {
-            return (
-                <div className="container">
-                    <div className="row">
-                        <div className="col s12 content">
-                            <div className="photo" style={{ backgroundImage: `url(${photo})` }}></div>
-                            <div className="details">
-                                <div className="mountain-details">
-                                    <span>
-                                        <span className="mountain-peak">{mountainPeak}</span>
-                                        <span className="elevation">{elevationFeet.toLocaleString()} ft</span>
-                                    </span>
-                                    <span className="mountain-range">{mountainRange}</span>
-                                </div>
-                                <div className="route-details">
-                                    <span>
-                                        <span className="key">Standard Route:</span>
-                                        <span className="value standard-route">{standardRoute}</span>
-                                    </span>
-                                    <span>
-                                        <span className="key">Difficulty:</span>
-                                        <span className="value difficulty">{difficulty}</span>
-                                    </span>
-                                    <span>
-                                        <span className="key">Elevation Gain:</span>
-                                        <span className="value elevation-gain">{elevationGainFeet.toLocaleString()} ft</span>
-                                    </span>
-                                    <span>
-                                        <span className="key">Distance:</span>
-                                        <span className="value distance">{distanceMiles} mi</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )
-        }
-    }
-
     return (
-        <div className="nav-bottom" style={{ ...containerStyles }}>
-            <div className="nav-links" style={{ ...buttonStyles }}>
+        <div className={containerStyles()}>
+            <div className={mapNavStyles()}>
                 <button
                     className="btn-small"
                     onClick={handleButtonClick}
@@ -115,9 +80,38 @@ const NavBottom = (props) => {
                 disabled={!isEmpty(fourteener)}
                 onClick={handleControlClick}
             >
-                <FontAwesomeIcon icon={display ? faAngleUp : faAngleDown} />
+                <FontAwesomeIcon icon={display ? faAngleDown : faAngleUp} />
             </div>
-            {renderContent()}
+            <div className="content">
+                <div className="photo" style={{ backgroundImage: `url(${photo})` }}></div>
+                <div className="details">
+                    <div className="mountain-details">
+                        <span>
+                            <span className="mountain-peak">{mountainPeak}</span>
+                            <span className="elevation">{elevationFeet && elevationFeet.toLocaleString()} ft</span>
+                        </span>
+                        <span className="mountain-range">{mountainRange}</span>
+                    </div>
+                    <div className="route-details">
+                        <span>
+                            <span className="key">Standard Route:</span>
+                            <span className="value standard-route">{standardRoute}</span>
+                        </span>
+                        <span>
+                            <span className="key">Difficulty:</span>
+                            <span className="value difficulty">{difficulty}</span>
+                        </span>
+                        <span>
+                            <span className="key">Elevation Gain:</span>
+                            <span className="value elevation-gain">{elevationGainFeet && elevationGainFeet.toLocaleString()} ft</span>
+                        </span>
+                        <span>
+                            <span className="key">Distance:</span>
+                            <span className="value distance">{distanceMiles} mi</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

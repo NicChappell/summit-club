@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     faCheckCircle,
+    faMap,
     faMapMarker
 } from '@fortawesome/free-solid-svg-icons'
 
@@ -42,11 +43,24 @@ const Fourteeners = (props) => {
                                     <p>{distanceMiles}</p>
                                     <p>{elevationGainFeet}</p>
                                     <p>{difficulty}</p>
-                                    <FontAwesomeIcon icon={faCheckCircle} />
-                                    <FontAwesomeIcon icon={faMapMarker} />
                                 </div>
                                 <div className="card-action">
-                                    <Link to={`/fourteeners/${slug}`}>Details</Link>
+                                    <div className="navigation">
+                                        <Link className="btn-flat btn" to={`/fourteeners/${slug}`}>
+                                            Map
+                                            <FontAwesomeIcon icon={faMap} />
+                                        </Link>
+                                    </div>
+                                    <div className="tags">
+                                        <div className="chip summited">
+                                            Summited
+                                            <FontAwesomeIcon icon={faCheckCircle} />
+                                        </div>
+                                        <div className="chip verified">
+                                            Verified Check-in
+                                            <FontAwesomeIcon icon={faMapMarker} />
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
