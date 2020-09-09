@@ -1,6 +1,7 @@
 // dependencies
 import React, { useState } from 'react'
 import {
+    Link,
     NavLink,
     useLocation
 } from 'react-router-dom'
@@ -19,6 +20,9 @@ import {
     faUserPlus
 } from '@fortawesome/free-solid-svg-icons'
 import isEmpty from 'lodash.isempty'
+
+// images
+import logo from '../img/logo.svg'
 
 const NavTop = (props) => {
     // destructure props
@@ -106,7 +110,63 @@ const NavTop = (props) => {
         )
     }
 
-    return null
+    return (
+        <nav>
+            <div className="container">
+                <div className="row">
+                    <div className="col s12 content">
+                        <div className="brand">
+                            <Link to="/">
+                                <img alt="Summit Club" src={logo} />
+                            </Link>
+                            <span>Summit Club</span>
+                        </div>
+                        <div className="desktop hide-on-small-only">
+                            <ul>
+                                <li>
+                                    <NavLink to="/fourteeners">
+                                        Fourteeners
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/colorado-map">
+                                        Map
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/profile">
+                                        Profile
+                                    </NavLink>
+                                </li>
+                                {/* <li>
+                                    <NavLink to="/sign-in">
+                                        Sign In
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/sign-up">
+                                        Sign Up
+                                    </NavLink>
+                                </li> */}
+                                <li>
+                                    <button className="btn-flat btn">
+                                        Sign Out
+                                    </button>
+                                </li>
+                            </ul>
+
+
+
+
+                        </div>
+                        <div className="mobile hide-on-med-and-up">
+                            mobile
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    )
 }
 
 export default NavTop

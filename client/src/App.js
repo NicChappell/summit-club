@@ -46,13 +46,13 @@ function App() {
     }, [])
 
     return (
-        <div className="app">
+        <div id="app">
             <Router>
                 <NavTop
                     fourteener={fourteener}
                     setFourteener={setFourteener}
                 />
-                <div className="router">
+                <div id="router">
                     <Switch>
                         <Route
                             exact

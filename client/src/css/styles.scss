@@ -48,7 +48,11 @@ $text-button-width: 115px !default;
 $nav-bottom-height: 300px !default;
 $nav-top-height: 100px !default;
 
-.app {
+* {
+    font-family: "Source Sans Pro", sans-serif !important;
+}
+
+#app {
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -269,7 +273,83 @@ $nav-top-height: 100px !default;
             }
         }
     }
-    .router {
+    footer {
+    }
+    nav {
+        background-color: $white;
+        border-bottom: 5px solid $primary-color;
+        color: $white;
+        height: auto;
+        line-height: normal;
+        width: 100%;
+        .container {
+            .row {
+                margin: 0;
+                padding: 0;
+                .col {
+                    margin: 0;
+                    padding: 0;
+                    &.content {
+                        align-items: center;
+                        display: flex;
+                        justify-content: space-between;
+                        .brand {
+                            align-items: center;
+                            display: flex;
+                            justify-content: flex-start;
+                            a {
+                                color: $primary-color;
+                                font-size: 1rem;
+                                img {
+                                    display: block;
+                                    height: 45px;
+                                    margin: 5px;
+                                    width: 45px;
+                                }
+                            }
+                            span {
+                                color: $primary-color;
+                                font-size: 1.75rem;
+                                line-height: 45px;
+                                margin-left: 0.5rem;
+                            }
+                        }
+                        .desktop {
+                            ul {
+                                li {
+                                    a,
+                                    button {
+                                        align-items: center;
+                                        background-color: $white;
+                                        border-radius: 2.5px;
+                                        display: flex;
+                                        justify-content: flex-start;
+                                        color: $primary-color;
+                                        font-size: 1rem;
+                                        height: 45px;
+                                        padding: 5px 10px;
+                                        text-transform: uppercase;
+                                        &.active {
+                                            background-color: $primary-color;
+                                            color: $white;
+                                        }
+                                        &:focus,
+                                        &:hover {
+                                            background-color: $primary-color !important;
+                                            color: $white !important;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .mobile {
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #router {
         flex: 1 0 auto;
         .colorado-map {
         }
