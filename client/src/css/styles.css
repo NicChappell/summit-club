@@ -249,24 +249,24 @@
   display: flex;
   justify-content: space-between;
 }
-#app nav .container .row .col.content .brand {
+#app nav .container .row .col.content a {
   align-items: center;
   display: flex;
   justify-content: flex-start;
-}
-#app nav .container .row .col.content .brand a {
   color: #6a4025;
   font-size: 1rem;
 }
-#app nav .container .row .col.content .brand a img {
+#app nav .container .row .col.content a img {
   display: block;
   height: 45px;
   margin: 5px;
   width: 45px;
 }
-#app nav .container .row .col.content .brand span {
+#app nav .container .row .col.content a span {
+  display: block;
   color: #6a4025;
   font-size: 1.75rem;
+  font-weight: 600;
   line-height: 45px;
   margin-left: 0.5rem;
 }
@@ -279,6 +279,7 @@
   justify-content: flex-start;
   color: #6a4025;
   font-size: 1rem;
+  font-weight: 600;
   height: 45px;
   padding: 5px 10px;
   text-transform: uppercase;
@@ -294,8 +295,14 @@
   background-color: #6a4025 !important;
   color: #ffffff !important;
 }
-#app #router {
+#router {
   flex: 1 0 auto;
+  width: 100%;
+}
+#router .home .static-map {
+  height: 50vh;
+  min-height: 420px;
+  width: 100%;
 }
 .controls {
   align-items: flex-end;

@@ -33,7 +33,6 @@ const NavTop = (props) => {
 
     // react router hooks
     const location = useLocation()
-    console.log(location)
 
     // state hooks
     const [display, setDisplay] = useState(false)
@@ -115,12 +114,10 @@ const NavTop = (props) => {
             <div className="container">
                 <div className="row">
                     <div className="col s12 content">
-                        <div className="brand">
-                            <Link to="/">
-                                <img alt="Summit Club" src={logo} />
-                            </Link>
+                        <Link to="/">
+                            <img alt="Summit Club" src={logo} />
                             <span>Summit Club</span>
-                        </div>
+                        </Link>
                         <div className="desktop hide-on-small-only">
                             <ul>
                                 <li>

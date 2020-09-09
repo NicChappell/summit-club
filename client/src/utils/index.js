@@ -1,4 +1,8 @@
 // dependencies
+import {
+    useRef,
+    useEffect
+} from 'react'
 import distance from '@turf/distance'
 import { point } from '@turf/helpers'
 
@@ -50,4 +54,28 @@ export const createCircle = (center, radius) => {
             }]
         }
     }
+}
+
+export const debounce = (callback, time = 250) => {
+    let interval
+
+    return (...args) => {
+        clearTimeout(interval)
+
+        interval = setTimeout(() => {
+            interval = null
+
+            callback(...args)
+        }, time)
+    }
+}
+
+export const useDidMount = () => {
+    const didMountRef = useRef(false)
+
+    useEffect(() => {
+        didMountRef.current = true
+    }, [])
+
+    return didMountRef.current
 }

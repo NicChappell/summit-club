@@ -293,23 +293,23 @@ $nav-top-height: 100px !default;
                         align-items: center;
                         display: flex;
                         justify-content: space-between;
-                        .brand {
+                        a {
                             align-items: center;
                             display: flex;
                             justify-content: flex-start;
-                            a {
-                                color: $primary-color;
-                                font-size: 1rem;
-                                img {
-                                    display: block;
-                                    height: 45px;
-                                    margin: 5px;
-                                    width: 45px;
-                                }
+                            color: $primary-color;
+                            font-size: 1rem;
+                            img {
+                                display: block;
+                                height: 45px;
+                                margin: 5px;
+                                width: 45px;
                             }
                             span {
+                                display: block;
                                 color: $primary-color;
                                 font-size: 1.75rem;
+                                font-weight: 600;
                                 line-height: 45px;
                                 margin-left: 0.5rem;
                             }
@@ -326,6 +326,7 @@ $nav-top-height: 100px !default;
                                         justify-content: flex-start;
                                         color: $primary-color;
                                         font-size: 1rem;
+                                        font-weight: 600;
                                         height: 45px;
                                         padding: 5px 10px;
                                         text-transform: uppercase;
@@ -349,24 +350,31 @@ $nav-top-height: 100px !default;
             }
         }
     }
-    #router {
-        flex: 1 0 auto;
-        .colorado-map {
+}
+
+#router {
+    flex: 1 0 auto;
+    width: 100%;
+    .colorado-map {
+    }
+    .fourteener {
+    }
+    .fourteeners {
+    }
+    .home {
+        .static-map {
+            height: 50vh;
+            min-height: 420px;
+            width: 100%;
         }
-        .fourteener {
-        }
-        .fourteeners {
-        }
-        .home {
-        }
-        .no-match {
-        }
-        .profile {
-        }
-        .sign-in {
-        }
-        .sign-up {
-        }
+    }
+    .no-match {
+    }
+    .profile {
+    }
+    .sign-in {
+    }
+    .sign-up {
     }
 }
 
