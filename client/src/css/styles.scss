@@ -45,16 +45,8 @@ $icon-button-width: 42px !default;
 $text-button-height: 42px !default;
 $text-button-width: 115px !default;
 
-$nav-border-width: 7px !default;
-
-$nav-bottom-height: 285px !default;
-
-$nav-control-height: 28px !default;
-$nav-control-width: 56px !default;
-
-$nav-margin: 5px !default;
-
-$nav-top-height: 70px !default;
+$nav-bottom-height: 300px !default;
+$nav-top-height: 100px !default;
 
 .app {
     align-items: center;
@@ -83,10 +75,10 @@ $nav-top-height: 70px !default;
             color: $white;
             cursor: pointer;
             display: flex;
-            font-size: 18px;
-            height: $nav-control-height;
+            font-size: 20px;
+            height: 30px;
             justify-content: center;
-            width: $nav-control-width;
+            width: 60px;
         }
         .map-nav {
             align-items: center;
@@ -103,7 +95,7 @@ $nav-top-height: 70px !default;
                 background-color: $primary-color;
                 color: $white;
                 display: flex;
-                margin: $nav-margin;
+                margin: 5px;
                 justify-content: center;
                 &:focus,
                 &:hover {
@@ -114,25 +106,27 @@ $nav-top-height: 70px !default;
         }
     }
     .nav-bottom {
-        height: calc(#{$nav-bottom-height} + #{$nav-control-height});
+        height: $nav-bottom-height;
         justify-content: flex-end;
         &.closed {
-            bottom: calc(-#{$nav-bottom-height} - #{$nav-control-height});
+            bottom: -$nav-bottom-height;
         }
         &.opened {
             bottom: 0;
         }
         &.peaking {
-            bottom: calc(#{$nav-control-height} - #{$nav-bottom-height});
+            bottom: calc(35px - #{$nav-bottom-height});
         }
         .content {
-            border-radius: 2px 2px 0 0;
-            border-top: $nav-border-width solid $primary-color;
+            border-radius: 2.5px 2.5px 0 0;
+            border-top: 5px solid $primary-color;
+            height: calc(#{$nav-bottom-height} - 35px);
             .details {
                 align-items: flex-start;
                 color: $black;
                 display: flex;
                 flex-direction: row;
+                height: calc(#{$nav-bottom-height} - 185px);
                 justify-content: space-between;
                 .mountain-details,
                 .route-details {
@@ -193,7 +187,7 @@ $nav-top-height: 70px !default;
             }
         }
         .control {
-            border-radius: 2px 2px 0 0;
+            border-radius: 2.5px 2.5px 0 0;
         }
         .map-nav {
             justify-content: flex-end;
@@ -201,7 +195,7 @@ $nav-top-height: 70px !default;
                 bottom: -$text-button-height;
             }
             &.opened {
-                bottom: calc(#{$nav-bottom-height} - #{$nav-control-height});
+                bottom: calc(#{$nav-bottom-height} - 35px);
             }
             .content {
                 justify-content: flex-end;
@@ -213,21 +207,21 @@ $nav-top-height: 70px !default;
         }
     }
     .nav-top {
-        height: calc(#{$nav-top-height} + #{$nav-control-height});
+        height: $nav-top-height;
         justify-content: flex-start;
         &.closed {
-            top: -$nav-top-height;
+            top: calc(35px - #{$nav-top-height});
         }
         &.opened {
             top: 0;
         }
         .content {
             align-items: center;
-            border-bottom: $nav-border-width solid $primary-color;
-            border-radius: 0 0 2px 2px;
+            border-bottom: 5px solid $primary-color;
+            border-radius: 0 0 2.5px 2.5px;
             display: flex;
             flex-direction: row;
-            height: $nav-top-height;
+            height: calc(#{$nav-top-height} - 35px);
             justify-content: space-evenly;
             a,
             button {
@@ -254,7 +248,7 @@ $nav-top-height: 70px !default;
             }
         }
         .control {
-            border-radius: 0 0 2px 2px;
+            border-radius: 0 0 2.5px 2.5px;
         }
         .map-nav {
             justify-content: flex-start;
@@ -262,10 +256,10 @@ $nav-top-height: 70px !default;
                 top: 0;
             }
             &.hidden {
-                top: calc(-#{$nav-top-height} - #{$nav-control-height} - #{$nav-border-width});
+                top: -$nav-top-height;
             }
             &.opened {
-                top: $nav-top-height;
+                top: calc(#{$nav-top-height} - 35px);
             }
             button {
                 height: $icon-button-height;

@@ -33,23 +33,17 @@ const NavBottom = (props) => {
     // state hooks
     const [display, setDisplay] = useState(false)
 
-    const mapNavStyles = () => {
-        if (!isEmpty(fourteener) && display) {
-            return 'map-nav opened'
+    const containerState = () => {
+        if (!isEmpty(fourteener) && !display) {
+            return 'peaking'
+        } else if (!isEmpty(fourteener) && display) {
+            return 'opened'
         } else {
-            return 'map-nav closed'
+            return 'closed'
         }
     }
 
-    const containerStyles = () => {
-        if (!isEmpty(fourteener) && !display) {
-            return 'nav-bottom peaking'
-        } else if (!isEmpty(fourteener) && display) {
-            return 'nav-bottom opened'
-        } else {
-            return 'nav-bottom closed'
-        }
-    }
+    const mapNavState = () => !isEmpty(fourteener) && display ? 'opened' : 'closed'
 
     // update state when fourteener changes
     useEffect(() => {
@@ -66,8 +60,8 @@ const NavBottom = (props) => {
     const handleControlClick = () => setDisplay(!display)
 
     return (
-        <div className={containerStyles()}>
-            <div className={mapNavStyles()}>
+        <div className={`nav-bottom ${containerState()}`}>
+            <div className={`map-nav ${mapNavState()}`}>
                 <button
                     className="btn-small"
                     onClick={handleButtonClick}
@@ -77,7 +71,6 @@ const NavBottom = (props) => {
             </div>
             <div
                 className="control"
-                disabled={!isEmpty(fourteener)}
                 onClick={handleControlClick}
             >
                 <FontAwesomeIcon icon={display ? faAngleDown : faAngleUp} />

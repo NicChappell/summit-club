@@ -28,23 +28,23 @@ const NavTop = (props) => {
     // state hooks
     const [display, setDisplay] = useState(false)
 
-    const mapNavStyles = () => {
+    const containerState = () => display ? 'opened' : 'closed'
+
+    const mapNavState = () => {
         if (!isEmpty(fourteener) && !display) {
-            return 'map-nav closed'
+            return 'closed'
         } else if (!isEmpty(fourteener) && display) {
-            return 'map-nav opened'
+            return 'opened'
         } else {
-            return 'map-nav hidden'
+            return 'hidden'
         }
     }
-
-    const containerStyles = () => display ? 'nav-top opened' : 'nav-top closed'
 
     const handleControlClick = () => setDisplay(!display)
 
     return (
-        <div className={containerStyles()}>
-            <div className={mapNavStyles()}>
+        <div className={`nav-top ${containerState()}`}>
+            <div className={`map-nav ${mapNavState()}`}>
                 <button
                     className="btn-floating btn"
                     onClick={() => setFourteener({})}
