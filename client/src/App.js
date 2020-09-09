@@ -50,7 +50,6 @@ function App() {
             <Router>
                 <NavTop
                     fourteener={fourteener}
-                    location={location}
                     setFourteener={setFourteener}
                 />
                 <div className="router">
