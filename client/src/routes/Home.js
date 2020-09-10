@@ -101,6 +101,11 @@ const Home = (props) => {
     return (
         <div className="container home">
             <div className="row">
+                <div className="col s12">
+                    <h2>The interactive map for tracking your hiking and climbing adventures.</h2>
+                </div>
+            </div>
+            <div className="row">
                 <div className="col s6">
                     <div className="static-map" ref={mapContainer}>
                         <StaticMap
@@ -112,6 +117,15 @@ const Home = (props) => {
                             <Fourteeners fourteeners={fourteeners} />
                         </StaticMap>
                     </div>
+                </div>
+                <div className="col s6">
+                    <h2>Fourteeners</h2>
+                    <p className="flow-text">Colorado is home to some of the highest terrain in North America, including 58 mountain peaks that rise above 14,000 feet (4,270 meters), the most of any state.</p>
+                    <p className="flow-text">Climbing a fourteener is the quintessential Colorado bucket list item. Summit Club makes it easy to keep track of the fourteeners you've summited.</p>
+                    <button className="btn">Sign in</button>
+                    <button className="btn">Sign up</button>
+                    <h2>“By failing to prepare, you are preparing to fail.” – Benjamin Franklin</h2>
+                    <p className="flow-text">With detailed route information and current weather conditions, Summit Club is your go-to source for planning your next fourteener.</p>
                 </div>
             </div>
         </div>
