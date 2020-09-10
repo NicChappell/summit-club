@@ -101,7 +101,7 @@ const Home = (props) => {
     return (
         <div className="container home">
             <div className="row">
-                <div className="col s12">
+                <div className="col s6">
                     <div className="static-map" ref={mapContainer}>
                         <StaticMap
                             {...viewState}

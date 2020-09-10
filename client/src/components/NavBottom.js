@@ -3,12 +3,19 @@ import React, {
     useEffect,
     useState
 } from 'react'
+import {
+    Link,
+    useLocation
+} from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     faAngleDown,
     faAngleUp
 } from '@fortawesome/free-solid-svg-icons'
 import isEmpty from 'lodash.isempty'
+
+// images
+import logo from '../img/logo.svg'
 
 const NavBottom = (props) => {
     // destructure props
@@ -29,6 +36,9 @@ const NavBottom = (props) => {
         difficulty,
         photo
     } = fourteener
+
+    // react router hooks
+    const location = useLocation()
 
     // state hooks
     const [display, setDisplay] = useState(false)
